@@ -1,126 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BharatSwaad & Style</title>
-<style>
-body {margin:0; font-family: Arial, Helvetica, sans-serif; line-height:1.6; color:#333;}
-a{text-decoration:none;color:inherit;} 
-section{padding:60px 20px;} 
-header{background:linear-gradient(135deg,#ff9933,#138808);color:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;} 
-header h1{margin:0;font-size:32px;} 
-nav a{margin-right:20px;color:#fff;font-weight:bold;} 
-nav a:hover{text-decoration:underline;} 
-
-/* Hero styles with background image */
-.hero{
-  background-color:#f7f7f7;
-  background-image: url("https://source.unsplash.com/1600x600/?india,food,jewellery,clothes");
-  background-size:cover;
-  background-position:center;
-  color: #fff;
-  text-align:center;
-  padding:120px 20px;
-  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.25);
-}
-.hero h2{font-size:36px;margin-bottom:10px;}
-.hero p{font-size:20px;margin-bottom:0;} 
-
-.about, .products, .contact{text-align:center;} 
-.about h2, .products h2, .contact h2{font-size:30px;margin-bottom:20px;} 
-.about p, .contact p{max-width:700px;margin:auto;font-size:18px;} 
-.product-list{display:flex;flex-wrap:wrap;justify-content:center;margin-top:40px;} 
-.product{background:#fff;border:1px solid #ddd;margin:10px;padding:20px;width:280px;border-radius:10px;text-align:center;} 
-.product img{width:100%;height:180px;object-fit:cover;border-radius:10px;} 
-.product h3{margin-top:15px;font-size:22px;} 
-.product button{margin-top:10px;padding:10px 20px;background:#ff6600;border:none;color:#fff;border-radius:5px;cursor:pointer;} 
-.product button:hover{background:#e65c00;} 
-footer{background:#138808;color:#fff;text-align:center;padding:20px;} 
-.caption{font-size:12px;color:#666;margin-top:8px;}
-@media(max-width:768px){.product-list{flex-direction:column;align-items:center;} .hero{padding:80px 20px}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BharatSwaad & Style</title>
+  <style>
+    :root{ --accent1:#ff9933; --accent2:#138808; --button:#ff6600; --muted:#666; --max-width:1100px; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#222;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    header{ background:linear-gradient(135deg,var(--accent1),var(--accent2)); color:#fff;padding:18px clamp(12px,3vw,40px);display:flex;align-items:center;justify-content:space-between; gap:12px; }
+    header h1{margin:0;font-size:1.25rem;white-space:nowrap}
+    nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    nav a{font-weight:600;color:#fff}
+    main{max-width:var(--max-width);margin:0 auto;padding:24px}
+    .hero{ margin-top:18px; border-radius:6px; overflow:hidden; color:#fff; display:flex; align-items:center; justify-content:center; text-align:center; padding:72px 18px; background-image: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1600&q=80'); background-size:cover; background-position:center; position:relative; }
+    .hero::before{ content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.28)); }
+    .hero > *{position:relative;z-index:1}
+    .hero h2{font-size:clamp(1.6rem,3.6vw,2.6rem);margin:0 0 8px}
+    .hero p{font-size:clamp(1rem,2.2vw,1.15rem);margin:0;opacity:.95}
+    section{padding:42px 0}
+    .section-title{text-align:center;margin-bottom:18px}
+    .section-title h2{margin:0;font-size:1.4rem}
+    .about p, .contact p{max-width:800px;margin:12px auto;color:#333;font-size:1rem}
+    .product-list{ display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:20px; margin-top:20px; align-items:start; }
+    .product{ background:#fff;border:1px solid #eee;border-radius:10px;padding:18px;text-align:center; box-shadow:0 1px 6px rgba(0,0,0,0.03); }
+    .product img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    .product h3{margin:12px 0 6px}
+    .caption{font-size:.85rem;color:var(--muted);margin-bottom:10px}
+    .btn-order{display:inline-block;background:var(--button);color:#fff;padding:10px 16px;border-radius:6px;border:none;cursor:pointer;font-weight:700}
+    footer{background:var(--accent2);color:#fff;padding:18px;text-align:center;margin-top:30px}
+    footer small{opacity:.95;display:block;margin-top:6px;font-size:.9rem}
+    @media (max-width:720px){ header{padding:12px} nav{gap:10px} .hero{padding:48px 12px} .product img{height:160px} .product{padding:14px} main{padding:12px} }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>BharatSwaad & Style</h1>
+    <nav aria-label="Main navigation">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<!-- HEADER -->
-<header>
-  <h1>BharatSwaad & Style</h1>
-  <nav>
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <main>
+    <section class="hero" id="hero" role="region" aria-label="Welcome">
+      <div>
+        <h2>Welcome to BharatSwaad & Style</h2>
+        <p>Authentic flavors, stunning jewellery, and beautiful clothes — all in one place!</p>
+      </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero" id="hero" role="img" aria-label="Hero image showcasing Indian food, jewellery and clothes">
-  <h2>Welcome to BharatSwaad & Style</h2>
-  <p>Authentic flavors, stunning jewellery, and beautiful clothes — all in one place!</p>
-</section>
+    <section class="about" id="about">
+      <div class="section-title"><h2>About Us</h2></div>
+      <p>We bring you the best of Indian taste, style, and culture. Explore our Osmania biscuits, imitation jewellery, and vibrant clothes. Everything crafted with love for quality and authenticity.</p>
+    </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <h2>About Us</h2>
-  <p>We bring you the best of Indian taste, style, and culture. Explore our Osmania biscuits, imitation jewellery, and vibrant clothes. Everything crafted with love for quality and authenticity.</p>
-</section>
+    <section class="products" id="products">
+      <div class="section-title"><h2>Our Products</h2></div>
+      <div class="product-list">
+        <article class="product" aria-labelledby="p1-title">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Osmania Biscuits" loading="lazy">
+          <h3 id="p1-title">Osmania Biscuits</h3>
+          <p class="caption">Photo: Artrapid / Unsplash</p>
+          <button class="btn-order" onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Osmania Biscuits','_blank')">Order Now</button>
+        </article>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <h2>Our Products</h2>
+        <article class="product" aria-labelledby="p2-title">
+          <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1200&q=80" alt="Imitation Jewellery" loading="lazy">
+          <h3 id="p2-title">Imitation Jewellery</h3>
+          <p class="caption">Photo: Ravi Roshan / Unsplash</p>
+          <button class="btn-order" onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Imitation Jewellery','_blank')">Order Now</button>
+        </article>
 
-  <div class="product-list">
-    <!-- Osmania Biscuits -->
-    <div class="product">
-      <img
-        src="https://source.unsplash.com/600x400/?indian-biscuits,cookies,tea"
-        alt="Osmania Biscuits"
-        loading="lazy"
-      >
-      <h3>Osmania Biscuits</h3>
-      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
-      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Osmania Biscuits','_blank')">Order Now</button>
-    </div>
+        <article class="product" aria-labelledby="p3-title">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" alt="Clothes" loading="lazy">
+          <h3 id="p3-title">Clothes</h3>
+          <p class="caption">Photo: Ronnie George / Unsplash</p>
+          <button class="btn-order" onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Clothes','_blank')">Order Now</button>
+        </article>
 
-    <!-- Imitation Jewellery -->
-    <div class="product">
-      <img
-        src="https://source.unsplash.com/600x400/?jewellery,imitation-jewellery,necklace"
-        alt="Imitation Jewellery"
-        loading="lazy"
-      >
-      <h3>Imitation Jewellery</h3>
-      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
-      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Imitation Jewellery','_blank')">Order Now</button>
-    </div>
+      </div>
+    </section>
 
-    <!-- Clothes -->
-    <div class="product">
-      <img
-        src="https://source.unsplash.com/600x400/?clothes,saree,kurta,tshirt"
-        alt="Clothes"
-        loading="lazy"
-      >
-      <h3>Clothes</h3>
-      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
-      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Clothes','_blank')">Order Now</button>
-    </div>
-  </div>
-</section>
+    <section class="contact" id="contact">
+      <div class="section-title"><h2>Contact Us</h2></div>
+      <p>Email: info@bharatswaad.com</p>
+      <p>Phone / WhatsApp: +91 8919196423</p>
+    </section>
+  </main>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: info@bharatswaad.com</p>
-  <p>Phone / WhatsApp: +91 8919196423</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  &copy; 2026 BharatSwaad & Style. All rights reserved.<br>
-  <small style="opacity:.9">Images: provided by Unsplash (free to use). For stable images, download and commit optimized files into /images/.</small>
-</footer>
-
+  <footer>
+    &copy; 2026 BharatSwaad & Style. All rights reserved.
+    <small>Images: Photos from Unsplash (Artrapid, Ravi Roshan, Ronnie George). For maximum reliability you can download these images and add them to /images/ in the repo.</small>
+  </footer>
 </body>
 </html>
