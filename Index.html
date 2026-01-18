@@ -1,28 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BharatSwaad & Style</title>
-    <style>
-        body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #333; }
-        a { text-decoration: none; color: inherit; }
-        section { padding: 60px 20px; }
-        header { background: linear-gradient(135deg, #ff9933, #138808); color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { margin: 0; font-size: 32px; }
-        nav a { margin-right: 20px; color: #fff; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        .hero { background: #f7f7f7; text-align: center; padding: 80px 20px; }
-        .hero h2 { font-size: 36px; margin-bottom: 20px; }
-        .hero p { font-size: 20px; }
-        .about, .products, .contact { text-align: center; }
-        .about h2, .products h2, .contact h2 { font-size: 30px; margin-bottom: 20px; }
-        .about p, .contact p { max-width: 700px; margin: 0 auto; font-size: 18px; }
-        .product-list { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
-        .product { background: #fff; border: 1px solid #ddd; margin: 10px; padding: 20px; width: 250px; border-radius: 10px; text-align: center; }
-        .product img { width: 100%; border-radius: 10px; }
-        .product h3 { margin-top: 15px; font-size: 22px; }
-        .product button { margin-top: 10px; padding: 10px 20px; background: #ff6600; border: none; color: #fff; border-radius: 5px; cursor: pointer; }
-        .product button:hover { background: #e65c00; }
-        footer { background: #138808; color: #fff; text-align: center; padding: 20px; }
-        @
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BharatSwaad & Style</title>
+<style>
+body {margin:0; font-family: Arial, Helvetica, sans-serif; line-height:1.6; color:#333;}
+a{text-decoration:none;color:inherit;}
+section{padding:60px 20px;}
+header{background:linear-gradient(135deg,#ff9933,#138808);color:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;}
+header h1{margin:0;font-size:32px;}
+nav a{margin-right:20px;color:#fff;font-weight:bold;}
+nav a:hover{text-decoration:underline;}
+.hero{background:#f7f7f7;text-align:center;padding:80px 20px;}
+.hero h2{font-size:36px;margin-bottom:20px;}
+.hero p{font-size:20px;}
+.about, .products, .contact{text-align:center;}
+.about h2, .products h2, .contact h2{font-size:30px;margin-bottom:20px;}
+.about p, .contact p{max-width:700px;margin:auto;font-size:18px;}
+.product-list{display:flex;flex-wrap:wrap;justify-content:center;margin-top:40px;}
+.product{background:#fff;border:1px solid #ddd;margin:10px;padding:20px;width:250px;border-radius:10px;text-align:center;}
+.product img{width:100%;border-radius:10px;}
+.product h3{margin-top:15px;font-size:22px;}
+.product button{margin-top:10px;padding:10px 20px;background:#ff6600;border:none;color:#fff;border-radius:5px;cursor:pointer;}
+.product button:hover{background:#e65c00;}
+footer{background:#138808;color:#fff;text-align:center;padding:20px;}
+@media(max-width:768px){.product-list{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+<h1>BharatSwaad & Style</h1>
+<nav>
+<a href="#hero">Home</a>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<h2>Welcome to BharatSwaad & Style</h2>
+<p>Authentic flavors, stunning jewellery, and beautiful ethnic clothes — all in one place!</p>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<h2>About Us</h2>
+<p>We bring you the best of Indian taste, style, and culture. Explore our Osmania biscuits, imitation jewellery, and vibrant ethnic clothing. Everything crafted with love for quality and authenticity.</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+<h2>Our Products</h2>
+
+<div class="product-list">
+    <!-- Osmania Biscuits -->
+    <div class="product">
+        <img src="https://i.imgur.com/N5vG9Ce.png" alt="Osmania Biscuits">
+        <h3>Osmania Biscuits</h3>
+        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Osmania Biscuits','_blank')">Order Now</button>
+    </div>
+
+    <!-- Imitation Jewellery -->
+    <div class="product">
+        <img src="https://i.imgur.com/7sy9q2R.png" alt="Imitation Jewellery">
+        <h3>Imitation Jewellery</h3>
+        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Imitation Jewellery','_blank')">Order Now</button>
+    </div>
+
+    <!-- Ethnic Clothes -->
+    <div class="product">
+        <img src="https://i.imgur.com/HW8gI7a.png" alt="Ethnic Clothes">
+        <h3>Ethnic Clothes</h3>
+        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Ethnic Clothes','_blank')">Order Now</button>
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>Contact Us</h2>
+<p>Email: info@bharatswaad.com</p>
+<p>Phone / WhatsApp: +91 12345 67890</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+&copy; 2026 BharatSwaad & Style. All rights reserved.
+</footer>
+
+</body>
+</html>
