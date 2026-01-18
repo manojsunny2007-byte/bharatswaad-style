@@ -12,85 +12,114 @@ header{background:linear-gradient(135deg,#ff9933,#138808);color:#fff;padding:20p
 header h1{margin:0;font-size:32px;} 
 nav a{margin-right:20px;color:#fff;font-weight:bold;} 
 nav a:hover{text-decoration:underline;} 
-.hero{background:#f7f7f7;text-align:center;padding:80px 20px;} 
-.hero h2{font-size:36px;margin-bottom:20px;} 
-.hero p{font-size:20px;} 
+
+/* Hero styles with background image */
+.hero{
+  background-color:#f7f7f7;
+  background-image: url("https://source.unsplash.com/1600x600/?india,food,jewellery,clothes");
+  background-size:cover;
+  background-position:center;
+  color: #fff;
+  text-align:center;
+  padding:120px 20px;
+  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.25);
+}
+.hero h2{font-size:36px;margin-bottom:10px;}
+.hero p{font-size:20px;margin-bottom:0;} 
+
 .about, .products, .contact{text-align:center;} 
 .about h2, .products h2, .contact h2{font-size:30px;margin-bottom:20px;} 
 .about p, .contact p{max-width:700px;margin:auto;font-size:18px;} 
 .product-list{display:flex;flex-wrap:wrap;justify-content:center;margin-top:40px;} 
-.product{background:#fff;border:1px solid #ddd;margin:10px;padding:20px;width:250px;border-radius:10px;text-align:center;} 
-.product img{width:100%;border-radius:10px;} 
+.product{background:#fff;border:1px solid #ddd;margin:10px;padding:20px;width:280px;border-radius:10px;text-align:center;} 
+.product img{width:100%;height:180px;object-fit:cover;border-radius:10px;} 
 .product h3{margin-top:15px;font-size:22px;} 
 .product button{margin-top:10px;padding:10px 20px;background:#ff6600;border:none;color:#fff;border-radius:5px;cursor:pointer;} 
 .product button:hover{background:#e65c00;} 
 footer{background:#138808;color:#fff;text-align:center;padding:20px;} 
-@media(max-width:768px){.product-list{flex-direction:column;align-items:center;}}
+.caption{font-size:12px;color:#666;margin-top:8px;}
+@media(max-width:768px){.product-list{flex-direction:column;align-items:center;} .hero{padding:80px 20px}}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-<h1>BharatSwaad & Style</h1>
-<nav>
-<a href="#hero">Home</a>
-<a href="#about">About</a>
-<a href="#products">Products</a>
-<a href="#contact">Contact</a>
-</nav>
+  <h1>BharatSwaad & Style</h1>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-<h2>Welcome to BharatSwaad & Style</h2>
-<p>Authentic flavors, stunning jewellery, and beautiful ethnic clothes — all in one place!</p>
+<section class="hero" id="hero" role="img" aria-label="Hero image showcasing Indian food, jewellery and clothes">
+  <h2>Welcome to BharatSwaad & Style</h2>
+  <p>Authentic flavors, stunning jewellery, and beautiful clothes — all in one place!</p>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-<h2>About Us</h2>
-<p>We bring you the best of Indian taste, style, and culture. Explore our Osmania biscuits, imitation jewellery, and vibrant ethnic clothing. Everything crafted with love for quality and authentic...</p>
+  <h2>About Us</h2>
+  <p>We bring you the best of Indian taste, style, and culture. Explore our Osmania biscuits, imitation jewellery, and vibrant clothes. Everything crafted with love for quality and authenticity.</p>
 </section>
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
-<h2>Our Products</h2>
+  <h2>Our Products</h2>
 
-<div class="product-list">
+  <div class="product-list">
     <!-- Osmania Biscuits -->
     <div class="product">
-        <img src="https://i.imgur.com/N5vG9Ce.png" alt="Osmania Biscuits">
-        <h3>Osmania Biscuits</h3>
-        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Osmania Biscuits','_blank')">Order Now</button>
+      <img
+        src="https://source.unsplash.com/600x400/?indian-biscuits,cookies,tea"
+        alt="Osmania Biscuits"
+        loading="lazy"
+      >
+      <h3>Osmania Biscuits</h3>
+      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
+      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Osmania Biscuits','_blank')">Order Now</button>
     </div>
 
     <!-- Imitation Jewellery -->
     <div class="product">
-        <img src="https://i.imgur.com/7sy9q2R.png" alt="Imitation Jewellery">
-        <h3>Imitation Jewellery</h3>
-        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Imitation Jewellery','_blank')">Order Now</button>
+      <img
+        src="https://source.unsplash.com/600x400/?jewellery,imitation-jewellery,necklace"
+        alt="Imitation Jewellery"
+        loading="lazy"
+      >
+      <h3>Imitation Jewellery</h3>
+      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
+      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Imitation Jewellery','_blank')">Order Now</button>
     </div>
 
-    <!-- Ethnic Clothes -->
+    <!-- Clothes -->
     <div class="product">
-        <img src="https://i.imgur.com/HW8gI7a.png" alt="Ethnic Clothes">
-        <h3>Ethnic Clothes</h3>
-        <button onclick="window.open('https://wa.me/911234567890?text=Hi! I want to order Ethnic Clothes','_blank')">Order Now</button>
+      <img
+        src="https://source.unsplash.com/600x400/?clothes,saree,kurta,tshirt"
+        alt="Clothes"
+        loading="lazy"
+      >
+      <h3>Clothes</h3>
+      <p class="caption">Photo (example): Unsplash — free to use (attribution appreciated)</p>
+      <button onclick="window.open('https://wa.me/918919196423?text=Hi! I want to order Clothes','_blank')">Order Now</button>
     </div>
-</div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-<h2>Contact Us</h2>
-<p>Email: info@bharatswaad.com</p>
-<p>Phone / WhatsApp: +91 12345 67890</p>
+  <h2>Contact Us</h2>
+  <p>Email: info@bharatswaad.com</p>
+  <p>Phone / WhatsApp: +91 8919196423</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-&copy; 2026 BharatSwaad & Style. All rights reserved.
+  &copy; 2026 BharatSwaad & Style. All rights reserved.<br>
+  <small style="opacity:.9">Images: provided by Unsplash (free to use). For stable images, download and commit optimized files into /images/.</small>
 </footer>
 
 </body>
