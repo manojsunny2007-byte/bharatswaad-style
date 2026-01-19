@@ -1,145 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>BharatSwaad & Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root{
-      --accent1:#ff9933;
-      --accent2:#138808;
-      --button:#ff6600;
-      --muted:#666;
-      --max-width:1100px;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      margin:0;
+    body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color:#222;
-      line-height:1.5;
+      background: #f9f9f9;
+      color: #222;
     }
 
-    a{ text-decoration:none; color:inherit; }
-
-    header{
-      background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      color:#fff;
-      padding:18px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:12px;
+    header {
+      background: linear-gradient(90deg, #ff9933, #138808);
+      color: white;
+      padding: 16px;
+      text-align: center;
     }
 
-    header h1{
-      margin:0;
-      font-size:1.3rem;
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    nav{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
+    .hero {
+      background: #ccc;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    nav a{
-      font-weight:600;
-      color:#fff;
+    .hero h2 {
+      margin: 0;
+      font-size: 32px;
     }
 
-    main{
-      max-width:var(--max-width);
-      margin:auto;
-      padding:24px;
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    /* 🔧 FIXED: using local hero image */
-    .hero{
-      margin-top:18px;
-      border-radius:8px;
-      padding:80px 20px;
-      text-align:center;
-      color:#fff;
-      background-image:url("images/hero.jpg");
-      background-size:cover;
-      background-position:center;
-      position:relative;
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.35);
-      border-radius:8px;
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    .hero *{
-      position:relative;
-      z-index:1;
+    .product {
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    section{
-      padding:40px 0;
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:20px;
+    .btn {
+      background: #ff6600;
+      color: white;
+      padding: 10px 16px;
+      display: inline-block;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-weight: bold;
     }
 
-    .product-list{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:20px;
-    }
-
-    .product{
-      border:1px solid #eee;
-      border-radius:10px;
-      padding:16px;
-      text-align:center;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .product img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      border-radius:8px;
-    }
-
-    .product h3{
-      margin:12px 0 8px;
-    }
-
-    .btn-order{
-      background:var(--button);
-      color:#fff;
-      padding:10px 16px;
-      border:none;
-      border-radius:6px;
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    footer{
-      background:var(--accent2);
-      color:#fff;
-      text-align:center;
-      padding:18px;
-      margin-top:40px;
-    }
-
-    @media(max-width:700px){
-      main{ padding:12px; }
-      .hero{ padding:50px 14px; }
-      .product img{ height:160px; }
+    footer {
+      background: #138808;
+      color: white;
+      text-align: center;
+      padding: 15px;
     }
   </style>
 </head>
@@ -156,79 +101,19 @@
   </nav>
 </header>
 
-<main>
+<div class="hero" id="home">
+  <h2>Welcome to BharatSwaad & Style</h2>
+  <p>Authentic food, beautiful jewellery & stylish clothes</p>
+</div>
 
-  <section class="hero" id="home">
-    <h2>Welcome to BharatSwaad & Style</h2>
-    <p>Authentic food, beautiful jewellery & stylish clothes</p>
-  </section>
+<section id="about">
+  <h2>About Us</h2>
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    BharatSwaad & Style brings together traditional Indian taste and fashion.
+    From famous Osmania biscuits to imitation jewellery and trendy clothes,
+    we focus on quality, trust, and affordability.
+  </p>
+</section>
 
-  <section id="about">
-    <div class="section-title">
-      <h2>About Us</h2>
-    </div>
-    <p style="text-align:center;max-width:800px;margin:auto;">
-      BharatSwaad & Style brings together traditional Indian taste and fashion.
-      From famous Osmania biscuits to imitation jewellery and trendy clothes,
-      we focus on quality, trust, and affordability.
-    </p>
-  </section>
-
-  <section id="products">
-    <div class="section-title">
-      <h2>Our Products</h2>
-    </div>
-
-    <div class="product-list">
-
-      <!-- 🔧 FIXED: local image -->
-      <div class="product">
-        <img src="images/osmania.jpg" alt="Osmania Biscuits">
-        <h3>Osmania Biscuits</h3>
-        <button class="btn-order"
-          onclick="window.open('https://wa.me/918919196423?text=I want to order Osmania Biscuits','_blank')">
-          Order on WhatsApp
-        </button>
-      </div>
-
-      <!-- 🔧 FIXED: local image -->
-      <div class="product">
-        <img src="images/jewellery.jpg" alt="Imitation Jewellery">
-        <h3>Imitation Jewellery</h3>
-        <button class="btn-order"
-          onclick="window.open('https://wa.me/918919196423?text=I want to order Imitation Jewellery','_blank')">
-          Order on WhatsApp
-        </button>
-      </div>
-
-      <!-- 🔧 FIXED: local image -->
-      <div class="product">
-        <img src="images/clothes.jpg" alt="Clothes">
-        <h3>Clothes</h3>
-        <button class="btn-order"
-          onclick="window.open('https://wa.me/918919196423?text=I want to order Clothes','_blank')">
-          Order on WhatsApp
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-    </div>
-    <p style="text-align:center;">
-      📞 WhatsApp: +91 8919196423 <br>
-      📧 Email: info@bharatswaad.com
-    </p>
-  </section>
-
-</main>
-
-<footer>
-  © 2026 BharatSwaad & Style. All rights reserved.
-</footer>
-
-</body>
-</html>
+<section id="products">
+  <h2>Our
