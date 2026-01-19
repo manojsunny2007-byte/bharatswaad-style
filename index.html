@@ -1,88 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BharatSwaad & Style</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>BharatSwaad & Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-    }
+<style>
+:root {
+  --primary: #ff7a00;
+  --secondary: #1b5e20;
+  --light: #f8f8f8;
+  --dark: #222;
+}
 
-    header {
-      background: linear-gradient(90deg, #ff9933, #138808);
-      color: white;
-      padding: 16px;
-      text-align: center;
-    }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
 
-    .hero {
-      background: #ccc;
-      padding: 60px 20px;
-      text-align: center;
-    }
+/* HEADER */
+header {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  padding: 18px;
+  text-align: center;
+  color: white;
+}
 
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+nav a {
+  color: white;
+  margin: 0 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+nav a:hover {
+  text-decoration: underline;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+/* HERO */
+.hero {
+  padding: 70px 20px;
+  background: #ddd;
+  text-align: center;
+}
 
-    .product {
-      background: white;
-      padding: 16px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
 
-    .product img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .btn {
-      background: #ff6600;
-      color: white;
-      padding: 10px 16px;
-      display: inline-block;
-      border-radius: 6px;
-      margin-top: 10px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    footer {
-      background: #138808;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-  </style>
+/* CATEGORY CARDS */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.product {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: var(--primary);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
 </head>
 
 <body>
@@ -91,67 +150,99 @@
   <h1>BharatSwaad & Style</h1>
   <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero" id="home">
-  <h2>Welcome to BharatSwaad & Style</h2>
-  <p>Authentic food, beautiful jewellery & stylish clothes</p>
+  <h2>Authentic Taste & Timeless Style</h2>
+  <p>Osmania Biscuits • Jewellery • Fashion</p>
 </div>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p style="text-align:center; max-width:700px; margin:auto;">
-    BharatSwaad & Style brings together traditional Indian taste and fashion.
-    From famous Osmania biscuits to imitation jewellery and trendy clothes,
-    we focus on quality, trust, and affordability.
-  </p>
-</section>
+<!-- CATEGORIES -->
+<section id="categories">
+  <h2>Our Categories</h2>
 
-<section id="products">
-  <h2>Our Products</h2>
-
-  <div class="products">
-
-    <div class="product">
-      <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
+  <div class="categories">
+    <div class="card" onclick="scrollToSection('biscuits')">
+      <img src="images/osmania-buiscets.png">
       <h3>Osmania Biscuits</h3>
-      <p>Hyderabad’s famous tea-time biscuits with authentic taste.</p>
-      <a class="btn" href="#contact">Order Now</a>
     </div>
 
-    <div class="product">
-      <img src="images/imitation-jewellery.jpg" alt="Imitation Jewellery">
-      <h3>Imitation Jewellery</h3>
-      <p>Elegant, affordable jewellery for every occasion.</p>
-      <a class="btn" href="#contact">Order Now</a>
+    <div class="card" onclick="scrollToSection('jewellery')">
+      <img src="images/imitation-jewellery.jpg">
+      <h3>Jewellery</h3>
     </div>
 
-    <div class="product">
-      <img src="images/clothes.jpg" alt="Clothes">
+    <div class="card" onclick="scrollToSection('clothes')">
+      <img src="images/clothes.jpg">
       <h3>Clothing</h3>
-      <p>Trendy and comfortable clothes for all ages.</p>
-      <a class="btn" href="#contact">Order Now</a>
     </div>
-
   </div>
 </section>
 
+<!-- BISCUITS -->
+<section id="biscuits">
+  <h2>Osmania Biscuits</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/osmania-buiscets.png">
+      <h4>Classic Osmania</h4>
+      <a class="btn" href="#contact">Order on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- JEWELLERY -->
+<section id="jewellery">
+  <h2>Jewellery Collection</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/jewellery1.jpg">
+      <h4>Necklace Set</h4>
+      <a class="btn" href="#contact">Order Now</a>
+    </div>
+
+    <div class="product">
+      <img src="images/jewellery2.jpg">
+      <h4>Earrings</h4>
+      <a class="btn" href="#contact">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOTHES -->
+<section id="clothes">
+  <h2>Fashion & Clothing</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/clothes1.jpg">
+      <h4>Traditional Wear</h4>
+      <a class="btn" href="#contact">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
   <p style="text-align:center;">
-    📞 Phone / WhatsApp: 8919196423 <br>
-    📍 India <br>
-    📧 Email: bharatswaad@gmail.com
+    📞 WhatsApp: 8919196423 <br>
+    📧 bharatswaad@gmail.com <br>
+    📍 India
   </p>
 </section>
 
 <footer>
-  © 2026 BharatSwaad & Style. All rights reserved.
+  © 2026 BharatSwaad & Style | Crafted with ❤️ in India
 </footer>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>
