@@ -6,140 +6,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-:root {
-  --primary: #ff7a00;
-  --secondary: #1b5e20;
-  --light: #f8f8f8;
-  --dark: #222;
+:root{
+  --primary:#ff7a00;
+  --secondary:#1b5e20;
+  --light:#f8f8f8;
+  --dark:#222;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+*{box-sizing:border-box;scroll-behavior:smooth}
 
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--light);
-  color: var(--dark);
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:var(--light);
+  color:var(--dark);
 }
 
 /* HEADER */
-header {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  padding: 18px;
-  text-align: center;
-  color: white;
+header{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  padding:18px;
+  text-align:center;
+  color:#fff;
 }
 
-nav a {
-  color: white;
-  margin: 0 14px;
-  text-decoration: none;
-  font-weight: 600;
+nav a{
+  color:#fff;
+  margin:0 14px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
+nav a:hover{ text-decoration:underline }
 
 /* HERO */
-.hero {
-  padding: 70px 20px;
-  background: #ddd;
-  text-align: center;
+.hero{
+  padding:80px 20px;
+  text-align:center;
+  background:url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
+  color:#fff;
 }
 
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+.hero h2{font-size:38px;margin-bottom:10px}
+.hero p{font-size:18px}
 
 /* SECTIONS */
-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
+section{
+  padding:70px 20px;
+  max-width:1200px;
+  margin:auto;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
+h2{
+  text-align:center;
+  margin-bottom:40px;
 }
 
-/* CATEGORY CARDS */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+/* CATEGORIES */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
 }
 
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s;
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-}
+.card:hover{ transform:translateY(-8px) }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
 }
 
 /* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
 }
 
-.product {
-  background: white;
-  border-radius: 14px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+.product{
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,0.1);
 }
 
-.product img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
+.product img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
 }
 
 /* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  background: var(--primary);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
+.btn{
+  display:inline-block;
+  margin-top:14px;
+  background:var(--primary);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-.btn:hover {
-  opacity: 0.9;
-}
+.btn:hover{ opacity:0.9 }
 
 /* FOOTER */
-footer {
-  background: var(--secondary);
-  color: white;
-  text-align: center;
-  padding: 20px;
+footer{
+  background:var(--secondary);
+  color:#fff;
+  text-align:center;
+  padding:22px;
 }
 </style>
 </head>
@@ -162,21 +152,20 @@ footer {
 
 <!-- CATEGORIES -->
 <section id="categories">
-  <h2>Our Categories</h2>
-
+  <h2>Shop by Category</h2>
   <div class="categories">
-    <div class="card" onclick="scrollToSection('biscuits')">
-      <img src="images/osmania-buiscets.png">
+    <div class="card" onclick="goTo('biscuits')">
+      <img src="https://images.unsplash.com/photo-1604908177522-402c3b0b3a3c?auto=format&fit=crop&w=800&q=80">
       <h3>Osmania Biscuits</h3>
     </div>
 
-    <div class="card" onclick="scrollToSection('jewellery')">
-      <img src="images/imitation-jewellery.jpg">
-      <h3>Jewellery</h3>
+    <div class="card" onclick="goTo('jewellery')">
+      <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80">
+      <h3>Imitation Jewellery</h3>
     </div>
 
-    <div class="card" onclick="scrollToSection('clothes')">
-      <img src="images/clothes.jpg">
+    <div class="card" onclick="goTo('clothes')">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80">
       <h3>Clothing</h3>
     </div>
   </div>
@@ -187,9 +176,12 @@ footer {
   <h2>Osmania Biscuits</h2>
   <div class="products">
     <div class="product">
-      <img src="images/osmania-buiscets.png">
-      <h4>Classic Osmania</h4>
-      <a class="btn" href="#contact">Order on WhatsApp</a>
+      <img src="https://images.unsplash.com/photo-1585238342028-4c5b7c1c87b3?auto=format&fit=crop&w=800&q=80">
+      <h4>Classic Osmania Biscuits</h4>
+      <a class="btn" target="_blank"
+         href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Osmania%20Biscuits">
+         Order on WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -199,27 +191,36 @@ footer {
   <h2>Jewellery Collection</h2>
   <div class="products">
     <div class="product">
-      <img src="images/jewellery1.jpg">
+      <img src="https://images.unsplash.com/photo-1617038260897-41a1f14d2c30?auto=format&fit=crop&w=800&q=80">
       <h4>Necklace Set</h4>
-      <a class="btn" href="#contact">Order Now</a>
+      <a class="btn" target="_blank"
+         href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Necklace%20Set">
+         Order on WhatsApp
+      </a>
     </div>
 
     <div class="product">
-      <img src="images/jewellery2.jpg">
+      <img src="https://images.unsplash.com/photo-1617038260923-acc9f5d4575c?auto=format&fit=crop&w=800&q=80">
       <h4>Earrings</h4>
-      <a class="btn" href="#contact">Order Now</a>
+      <a class="btn" target="_blank"
+         href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Earrings">
+         Order on WhatsApp
+      </a>
     </div>
   </div>
 </section>
 
 <!-- CLOTHES -->
 <section id="clothes">
-  <h2>Fashion & Clothing</h2>
+  <h2>Clothing</h2>
   <div class="products">
     <div class="product">
-      <img src="images/clothes1.jpg">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80">
       <h4>Traditional Wear</h4>
-      <a class="btn" href="#contact">Order Now</a>
+      <a class="btn" target="_blank"
+         href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Traditional%20Wear">
+         Order on WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -227,20 +228,20 @@ footer {
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
-  <p style="text-align:center;">
-    📞 WhatsApp: 8919196423 <br>
-    📧 bharatswaad@gmail.com <br>
-    📍 India
+  <p style="text-align:center">
+    📞 WhatsApp: +91 8919196423<br>
+    📧 Email: bharatswaad@gmail.com<br>
+    🇮🇳 Made in India
   </p>
 </section>
 
 <footer>
-  © 2026 BharatSwaad & Style | Crafted with ❤️ in India
+  © 2026 BharatSwaad & Style | Trusted Indian Brand
 </footer>
 
 <script>
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 </script>
 
