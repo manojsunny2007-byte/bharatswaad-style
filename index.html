@@ -4,61 +4,145 @@
 <meta charset="UTF-8">
 <title>BharatSwaad & Style | Premium Heritage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 :root{
-  --primary:#ff7a00; --secondary:#1b5e20; --whatsapp:#25D366; --light:#f8f8f8;
+  --primary:#ff7a00;
+  --secondary:#1b5e20;
+  --whatsapp:#25D366;
+  --light:#f8f8f8;
+  --dark:#222;
 }
-*{box-sizing:border-box; scroll-behavior:smooth}
-body{ margin:0; font-family:'Segoe UI', sans-serif; background:var(--light); color:#222; }
 
-/* NAVIGATION */
+*{box-sizing:border-box;scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:var(--light);
+  color:var(--dark);
+}
+
+/* HEADER & NAVIGATION */
 header{
   background:linear-gradient(90deg, var(--primary), var(--secondary));
-  padding:15px; text-align:center; color:#fff; position: sticky; top: 0; z-index: 1000;
+  padding:15px;
+  text-align:center;
+  color:#fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
-nav a{ color:#fff; margin:0 12px; text-decoration:none; font-weight:600; text-transform: uppercase; font-size: 13px; }
 
-/* HERO */
+nav{ margin-top: 10px; }
+nav a{
+  color:#fff;
+  margin:0 12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* HERO SECTION */
 .hero{
-  padding:100px 20px; text-align:center;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
+  padding:100px 20px;
+  text-align:center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
 }
 
-/* GRID LAYOUT */
+/* SECTIONS */
 section{ padding:60px 20px; max-width:1200px; margin:auto; }
-.products-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:30px; }
+h2.section-title{ text-align:center; margin-bottom:40px; font-size: 32px; position: relative; }
+h2.section-title::after{ content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto; }
 
-/* THE CARD FIX */
-.product-card {
-  background:#fff; border-radius:16px; overflow: hidden; text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,0.08); transition: 0.3s ease;
-  display: flex; flex-direction: column; height: 100%;
+/* PRODUCT GRIDS */
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:30px;
 }
+
+/* THE CARD FIX: Rectangle Shape & Zoom */
+.product-card {
+  background:#fff;
+  border-radius:16px;
+  overflow: hidden; 
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
 .product-card:hover { transform:translateY(-10px); }
-.img-container { width: 100%; height: 300px; overflow: hidden; }
-.product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+
+.img-container {
+  width: 100%;
+  height: 300px; /* Fixed rectangle height */
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* FILLS THE RECTANGLE */
+  transition: transform 0.5s ease;
+}
+
 .product-card:hover img { transform: scale(1.1); } /* ZOOM EFFECT */
 
-.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-
-/* BUTTONS */
-.btn-wa {
-  background: var(--whatsapp); color: #fff; padding: 12px 25px; border-radius: 50px;
-  text-decoration: none; font-weight: bold; width: fit-content; margin: 10px auto 0;
+.card-content {
+  padding: 20px;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+/* WHATSAPP BUTTONS */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--whatsapp);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  width: fit-content;
+  margin: 10px auto 0;
+}
+
+.btn-wa:hover{ background: #1eb954; transform: scale(1.05); }
+
+/* FLOATING WHATSAPP */
 .float-wa {
-  position: fixed; bottom: 20px; right: 20px; background: var(--whatsapp);
-  width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 2000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--whatsapp);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+  z-index: 2000;
 }
 .float-wa svg { fill: white; width: 35px; height: 35px; }
 
 footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px; margin-top: 50px; }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -71,28 +155,28 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   </nav>
 </header>
 
-<div class="hero">
+<div class="hero" id="home">
   <h2>Authentic Taste & Timeless Style</h2>
-  <p>Freshly Updated Collection from our Heritage</p>
+  <p>Freshly Updated Collection</p>
 </div>
 
 <section id="biscuits">
-  <h2 style="text-align:center">Osmania Biscuits</h2>
+  <h2 class="section-title">Osmania Biscuits</h2>
   <div class="products-grid" id="biscuits-container"></div>
 </section>
 
 <section id="oils">
-  <h2 style="text-align:center">Wood Pressed Oils</h2>
+  <h2 class="section-title">Wood Pressed Oils</h2>
   <div class="products-grid" id="oils-container"></div>
 </section>
 
 <section id="jewellery">
-  <h2 style="text-align:center">Jewellery Collection</h2>
+  <h2 class="section-title">Jewellery Collection</h2>
   <div class="products-grid" id="jewellery-container"></div>
 </section>
 
 <section id="clothes">
-  <h2 style="text-align:center">Clothing Gallery</h2>
+  <h2 class="section-title">Clothing Gallery</h2>
   <div class="products-grid" id="clothes-container"></div>
 </section>
 
@@ -100,39 +184,51 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   <svg viewBox="0 0 32 32"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.483 2.017 7.791l-2.017 7.709 7.917-2.017c2.258 1.183 4.825 1.858 7.55 1.858 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.458 0-4.75-0.617-6.775-1.692l-0.483-0.258-4.7 1.2 1.225-4.583-0.283-0.45c-1.225-1.958-1.942-4.283-1.942-6.775 0-7.358 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333z"></path></svg>
 </a>
 
-<footer>© 2026 BharatSwaad & Style</footer>
+<footer>
+  © 2026 BharatSwaad & Style | Trusted Indian Brand
+</footer>
 
 <script>
+// THIS SCRIPT FETCHES YOUR NEW IMAGES AUTOMATICALLY
 const GITHUB_USER = "manojsunny2007-byte";
 const REPO_NAME = "bharatswaad-style";
-const FOLDERS = ['biscuits', 'clothes', 'jewellery', 'oils'];
 
-async function fetchImages() {
-  for (const folder of FOLDERS) {
-    // Correcting path based on your image_b6f6be.png: images/images/folder
-    const url = `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/images/images/${folder}`;
-    const container = document.getElementById(`${folder === 'clothes' ? 'clothes' : folder}-container`);
-    
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      data.forEach(file => {
-        if (file.name.match(/\.(jpg|jpeg|png|webp)$/i)) {
-          const card = document.createElement("div");
-          card.className = "product-card";
-          card.innerHTML = `
-            <div class="img-container"><img src="${file.download_url}"></div>
-            <div class="card-content">
-              <h4>${folder.charAt(0).toUpperCase() + folder.slice(1)} Item</h4>
-              <a href="https://wa.me/918919196423?text=Order%20${file.name}" class="btn-wa">Order on WhatsApp</a>
-            </div>`;
-          container.appendChild(card);
-        }
-      });
-    } catch (e) { console.log(`No images in ${folder}`); }
-  }
+async function loadDynamicImages() {
+  // We look into your 'images' folder on GitHub
+  const url = `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/images`;
+  
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    data.forEach(file => {
+      let targetId = "";
+      let title = "";
+
+      // Smart sorting based on filename
+      if (file.name.includes("osmania")) { targetId = "biscuits-container"; title = "Classic Biscuits"; }
+      else if (file.name.includes("oil")) { targetId = "oils-container"; title = "Pure Wood Pressed Oil"; }
+      else if (file.name.includes("jewellery")) { targetId = "jewellery-container"; title = "Premium Jewellery"; }
+      else if (file.name.includes("clothes") || file.name.includes("wear")) { targetId = "clothes-container"; title = "Traditional Wear"; }
+
+      if (targetId && file.name.match(/\.(jpg|jpeg|png|webp)$/i)) {
+        const item = document.createElement("div");
+        item.className = "product-card";
+        item.innerHTML = `
+          <div class="img-container"><img src="${file.download_url}"></div>
+          <div class="card-content">
+            <h4>${title}</h4>
+            <a href="https://wa.me/918919196423?text=Hi, I want to order ${file.name}" class="btn-wa" target="_blank">Order on WhatsApp</a>
+          </div>
+        `;
+        document.getElementById(targetId).appendChild(item);
+      }
+    });
+  } catch (err) { console.error("Could not sync images", err); }
 }
-fetchImages();
+
+loadDynamicImages();
 </script>
+
 </body>
 </html>
