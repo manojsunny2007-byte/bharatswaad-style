@@ -10,31 +10,30 @@
   --primary:#ff7a00;
   --secondary:#1b5e20;
   --whatsapp:#25D366;
-  --light:#f4f4f4;
+  --light:#f8f8f8;
   --dark:#222;
-  --white:#ffffff;
 }
 
 *{box-sizing:border-box;scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background:var(--light);
   color:var(--dark);
   line-height: 1.6;
 }
 
-/* PREMIUM HEADER */
+/* HEADER & NAV */
 header{
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  padding: 15px;
-  text-align: center;
-  color: #fff;
+  background:linear-gradient(90deg, var(--primary), var(--secondary));
+  padding:15px;
+  text-align:center;
+  color:#fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 nav{ margin-top: 10px; }
@@ -43,198 +42,140 @@ nav a{
   margin:0 12px;
   text-decoration:none;
   font-weight:600;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: opacity 0.3s;
 }
-nav a:hover{ opacity: 0.7; }
 
 /* HERO SECTION */
 .hero{
-  padding: 120px 20px;
-  text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+  padding:100px 20px;
+  text-align:center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
               url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color: #fff;
-  margin-bottom: 20px;
+  color:#fff;
 }
-
-.hero h2{ font-size: clamp(28px, 5vw, 48px); margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
 /* MAIN SECTIONS */
 section{
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: auto;
+  padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
 }
 
 h2.section-title{
-  text-align: center;
-  margin-bottom: 50px;
+  text-align:center;
+  margin-bottom:40px;
   font-size: 32px;
-  font-weight: 700;
-  color: var(--secondary);
+  position: relative;
 }
 
 h2.section-title::after{
   content: '';
-  width: 50px;
+  width: 60px;
   height: 4px;
   background: var(--primary);
   display: block;
-  margin: 15px auto;
-  border-radius: 2px;
+  margin: 10px auto;
 }
 
 /* GRID LAYOUTS */
 .categories, .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
 }
 
-/* PREMIUM CARD DESIGN */
+/* CARD & PRODUCT STYLE */
 .card, .product {
-  background: var(--white);
-  border-radius: 20px;
-  overflow: hidden; 
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background:#fff;
+  border-radius:16px;
+  overflow: hidden; /* Important: Clips the zoomed image */
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border: 1px solid rgba(0,0,0,0.03);
+  height: 100%; /* Ensures all cards in a row are same height */
 }
 
 .card:hover, .product:hover { 
-  transform: translateY(-12px); 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  transform:translateY(-10px); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* IMAGE CONTAINER & ZOOM */
+/* IMAGE ZOOM EFFECT */
 .img-container {
   width: 100%;
-  height: 320px; 
+  height: 300px; /* Adjust this for the height of the image area */
   overflow: hidden;
-  position: relative;
 }
 
-.card img, .product img, .slideshow-img {
+.card img, .product img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  transition: transform 0.6s ease;
+  object-fit: cover; /* Fits the image to the rectangle perfectly */
+  transition: transform 0.5s ease;
 }
 
 .card:hover img, .product:hover img {
-  transform: scale(1.1); 
-}
-
-/* SLIDESHOW ANIMATION */
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+  transform: scale(1.1); /* The Zoom Effect */
 }
 
 /* CONTENT SPACING */
 .card-content {
-  padding: 25px;
-  flex-grow: 1; 
+  padding: 20px;
+  flex-grow: 1; /* Pushes the button to the bottom */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card h3, .product h4 {
-  margin: 0 0 12px 0;
-  font-size: 22px;
-  color: var(--dark);
+  margin: 0 0 10px 0;
+  font-size: 20px;
 }
 
 .product p {
-  color: #777;
-  font-size: 15px;
-  margin-bottom: 25px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-/* WHATSAPP BUTTONS */
+/* WHATSAPP BUTTON AT THE BOTTOM */
 .btn-wa {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: var(--whatsapp);
   color: #fff;
-  padding: 12px 28px;
+  padding: 12px 25px;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
   transition: 0.3s;
+  border: none;
+  cursor: pointer;
   width: fit-content;
   margin: 0 auto;
 }
 
-.btn-wa:hover{ background: #1eb954; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-
-/* FLOATING WHATSAPP BUTTON */
-.float-wa {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--whatsapp);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
-  z-index: 2000;
-  transition: 0.3s;
-}
-.float-wa:hover { transform: scale(1.1); }
-.float-wa svg { fill: white; width: 35px; height: 35px; }
-
-/* BACK TO TOP */
-#backToTop {
-  position: fixed;
-  bottom: 90px;
-  right: 25px;
-  display: none;
-  background: var(--secondary);
-  color: white;
-  border: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000;
-  font-size: 20px;
+.btn-wa:hover{ 
+  background: #1eb954; 
+  transform: scale(1.05); 
 }
 
 /* FOOTER */
 footer{
-  background: var(--secondary);
-  color: #fff;
-  text-align: center;
-  padding: 40px 20px;
+  background:var(--secondary);
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  margin-top: 50px;
 }
 </style>
 </head>
 
 <body>
-
-<a href="https://wa.me/918919196423" class="float-wa" target="_blank">
-  <svg viewBox="0 0 32 32"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.483 2.017 7.791l-2.017 7.709 7.917-2.017c2.258 1.183 4.825 1.858 7.55 1.858 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.458 0-4.75-0.617-6.775-1.692l-0.483-0.258-4.7 1.2 1.225-4.583-0.283-0.45c-1.225-1.958-1.942-4.283-1.942-6.775 0-7.358 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333zM22.517 19.108c-0.358-0.183-2.125-1.050-2.458-1.167s-0.575-0.183-0.817 0.183c-0.242 0.358-0.933 1.167-1.142 1.408s-0.425 0.267-0.783 0.083c-0.358-0.183-1.517-0.558-2.883-1.775-1.067-0.95-1.783-2.125-2-2.483s-0.025-0.55 0.158-0.733c0.167-0.167 0.358-0.425 0.542-0.633s0.242-0.358 0.358-0.6c0.117-0.242 0.058-0.458-0.033-0.633s-0.817-1.967-1.117-2.7c-0.3-0.725-0.6-0.625-0.817-0.633s-0.458-0.008-0.7-0.008c-0.242 0-0.633 0.092-0.967 0.458s-1.275 1.25-1.275 3.050 1.308 3.533 1.492 3.775c0.183 0.242 2.575 3.933 6.233 5.517 0.867 0.375 1.542 0.6 2.067 0.767 0.875 0.275 1.667 0.233 2.292 0.142 0.7-0.1 2.125-0.867 2.425-1.708s0.3-1.558 0.208-1.708c-0.092-0.158-0.342-0.25-0.708-0.433z"></path></svg>
-</a>
-
-<button id="backToTop" onclick="window.scrollTo(0,0)">↑</button>
 
 <header>
   <h1>BharatSwaad & Style</h1>
@@ -244,33 +185,43 @@ footer{
     <a href="#biscuits">Biscuits</a>
     <a href="#oils">Oils</a>
     <a href="#jewellery">Jewellery</a>
-    <a href="#clothes">Clothing</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero" id="home">
   <h2>Authentic Taste & Timeless Style</h2>
-  <p>Heritage Flavors Meets Modern Elegance</p>
+  <p>Premium Osmania Biscuits • Wood Pressed Oils • Heritage Jewellery</p>
 </div>
 
 <section id="categories">
   <h2 class="section-title">Shop by Category</h2>
   <div class="categories">
     <div class="card" onclick="goTo('biscuits')">
-      <div class="img-container"><img src="images/osmania-buiscets.png" alt="Biscuits"></div>
-      <div class="card-content"><h3>Osmania Biscuits</h3></div>
+      <div class="img-container">
+        <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
+      </div>
+      <div class="card-content">
+        <h3>Osmania Biscuits</h3>
+      </div>
     </div>
+    
     <div class="card" onclick="goTo('oils')">
-      <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png" alt="Oils"></div>
-      <div class="card-content"><h3>Wood Pressed Oil</h3></div>
+      <div class="img-container">
+        <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Cold Pressed Oil">
+      </div>
+      <div class="card-content">
+        <h3>Wood Pressed Oil</h3>
+      </div>
     </div>
+    
     <div class="card" onclick="goTo('jewellery')">
-      <div class="img-container"><img src="images/jewellery1.jpg.png" alt="Jewellery"></div>
-      <div class="card-content"><h3>Imitation Jewellery</h3></div>
-    </div>
-    <div class="card" onclick="goTo('clothes')">
-      <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80" alt="Clothing"></div>
-      <div class="card-content"><h3>Traditional Wear</h3></div>
+      <div class="img-container">
+        <img src="images/jewellery1.jpg.png" alt="Jewellery">
+      </div>
+      <div class="card-content">
+        <h3>Imitation Jewellery</h3>
+      </div>
     </div>
   </div>
 </section>
@@ -279,25 +230,33 @@ footer{
   <h2 class="section-title">Osmania Biscuits</h2>
   <div class="products">
     <div class="product">
-      <div class="img-container"><img src="images/osmania-buiscets.png"></div>
+      <div class="img-container">
+        <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
+      </div>
       <div class="card-content">
-        <h4>Classic Osmania</h4>
-        <p>The legendary buttery biscuit of Hyderabad.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Order%20Biscuits">Order on WhatsApp</a>
+        <h4>Classic Osmania Biscuits</h4>
+        <p>The authentic, buttery taste of traditional Hyderabad.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Osmania%20Biscuits">
+           Order on WhatsApp
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <section id="oils">
-  <h2 class="section-title">Cold Pressed Oils</h2>
+  <h2 class="section-title">Wooden Cold Pressed Oils</h2>
   <div class="products">
     <div class="product">
-      <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png"></div>
+      <div class="img-container">
+        <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Wood Pressed Oil">
+      </div>
       <div class="card-content">
-        <h4>Pure Wood Pressed</h4>
-        <p>Nutrient-rich, 100% natural wooden pressed oils.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Order%20Oil">Order on WhatsApp</a>
+        <h4>Pure Wood Pressed Oil</h4>
+        <p>100% Natural, extracted at room temperature to keep nutrients intact.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Wood%20Pressed%20Oil">
+           Order on WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -305,73 +264,41 @@ footer{
 
 <section id="jewellery">
   <h2 class="section-title">Jewellery Collection</h2>
-  <div class="products">
-    <div class="product">
-      <div class="img-container"><img src="images/jewellery1.jpg.png"></div>
-      <div class="card-content">
-        <h4>Heritage Necklace</h4>
-        <p>Exquisite imitation jewellery for every occasion.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Order%20Jewellery">Order on WhatsApp</a>
+  <div class="products" id="jewelleryGallery">
+      <div class="product">
+          <div class="img-container">
+            <img src="images/jewellery1.jpg.png" alt="Jewellery Set">
+          </div>
+          <div class="card-content">
+            <h4>Premium Necklace Set</h4>
+            <p>Traditional designs for your special occasions.</p>
+            <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Jewellery">Order on WhatsApp</a>
+          </div>
       </div>
-    </div>
   </div>
 </section>
 
-<section id="clothes">
-  <h2 class="section-title">Clothing Gallery</h2>
-  <div class="products">
-    <div class="product">
-      <div class="img-container">
-        <img class="slideshow-img fade" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800">
-        <img class="slideshow-img fade" src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800" style="display:none">
-        <img class="slideshow-img fade" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800" style="display:none">
-      </div>
-      <div class="card-content">
-        <h4>Traditional Fashion</h4>
-        <p>Authentic Indian wear with a modern touch.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Order%20Clothing">Order on WhatsApp</a>
-      </div>
-    </div>
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div style="text-align:center;">
+    <p>📞 WhatsApp: +91 8919196423</p>
+    <p>📧 Email: bharatswaad@gmail.com</p>
   </div>
 </section>
 
 <footer>
-  <p><strong>BharatSwaad & Style</strong></p>
-  <p>WhatsApp: +91 8919196423 | Email: bharatswaad@gmail.com</p>
-  <p style="margin-top:20px; font-size:12px; opacity:0.6">© 2026 Trusted Indian Heritage Brand</p>
+  © 2026 BharatSwaad & Style | Trusted Indian Brand
 </footer>
 
 <script>
 function goTo(id){
-  const el = document.getElementById(id);
-  const offset = 80;
-  const bodyRect = document.body.getBoundingClientRect().top;
-  const elementRect = el.getBoundingClientRect().top;
-  const elementPosition = elementRect - bodyRect;
-  const offsetPosition = elementPosition - offset;
-
-  window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-}
-
-// Back to Top Logic
-window.onscroll = function() {
-  const btn = document.getElementById("backToTop");
-  if (document.documentElement.scrollTop > 300) { btn.style.display = "block"; } 
-  else { btn.style.display = "none"; }
-};
-
-// Automatic Slideshow Logic
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("slideshow-img");
-  for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 3000); // Change image every 3 seconds
+  const element = document.getElementById(id);
+  if(element) {
+    const headerOffset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  }
 }
 </script>
 
