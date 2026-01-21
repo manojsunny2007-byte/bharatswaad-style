@@ -2,134 +2,143 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BharatSwaad & Style</title>
+<title>BharatSwaad & Style | Premium Heritage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root {
   --primary: #ff7a00;
   --secondary: #1b5e20;
   --whatsapp: #25D366;
-  --light: #f8f8f8;
+  --white: #ffffff;
+  --bg: #f4f4f4;
 }
 
 * { box-sizing: border-box; scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background: var(--light);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: #333;
 }
 
-/* HEADER & NAVIGATION */
+/* HEADER */
 header {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
-  padding: 15px;
+  padding: 15px 0;
   text-align: center;
-  color: #fff;
+  color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
+nav { margin-top: 10px; }
 nav a {
-  color: #fff;
+  color: white;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 13px;
   text-transform: uppercase;
-  font-size: 12px;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
               url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color: #fff;
-  margin-bottom: 20px;
+  color: white;
 }
 
-section { padding: 40px 20px; max-width: 1200px; margin: auto; }
-h2.section-title { text-align: center; margin-bottom: 30px; color: var(--secondary); font-size: 28px; }
+/* GRID SYSTEM */
+section { padding: 50px 20px; max-width: 1200px; margin: auto; }
+h2.section-title { text-align: center; margin-bottom: 40px; color: var(--secondary); position: relative; }
+h2.section-title::after { content: ''; width: 50px; height: 3px; background: var(--primary); display: block; margin: 10px auto; }
 
 /* FIX: 4 COLUMNS SIDE-BY-SIDE */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   gap: 15px;
-  margin-bottom: 50px;
 }
 
-/* PRODUCT GRID */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
 }
 
-/* THE WHITE RECTANGLE CARD */
+/* THE WHITE CARD */
 .card {
-  background: #fff;
+  background: var(--white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
   text-decoration: none;
   color: inherit;
+  height: 100%;
 }
 
-.card:hover { transform: translateY(-5px); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 
-/* FIX: IMAGE FILLS THE CARD */
+/* FIX: IMAGE FILLING THE RECTANGLE */
 .img-box {
   width: 100%;
-  height: 220px; /* Standard height for category row */
+  height: 200px; /* Category height */
   overflow: hidden;
+  background: #eee;
 }
 
 .product-card .img-box {
-  height: 350px; /* Taller height for product section */
+  height: 320px; /* Product height */
 }
 
 .img-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ENSURES IMAGE FILLS RECTANGLE COMPLETELY */
-  display: block;
+  object-fit: cover; /* Forces image to fill the card completely */
+  transition: 0.5s;
 }
+
+.card:hover img { transform: scale(1.05); }
 
 .card-body {
   padding: 15px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .card-body h3 { font-size: 16px; margin: 5px 0; }
 
-/* FLOATING WHATSAPP BUTTON */
-.float-wa {
+/* WHATSAPP FLY BUTTON */
+.wa-fly {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background-color: var(--whatsapp);
+  background: var(--whatsapp);
   width: 60px;
   height: 60px;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   z-index: 2000;
+  transition: 0.3s;
 }
+.wa-fly:hover { transform: scale(1.1); }
+.wa-fly svg { fill: white; width: 32px; height: 32px; }
 
-.float-wa svg { fill: white; width: 35px; height: 35px; }
-
-.btn-order {
+.btn-wa {
   background: var(--whatsapp);
   color: white;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
@@ -137,15 +146,13 @@ h2.section-title { text-align: center; margin-bottom: 30px; color: var(--seconda
   margin-top: 10px;
 }
 
-footer { background: var(--secondary); color: white; text-align: center; padding: 25px; margin-top: 50px; }
+footer { background: var(--secondary); color: white; text-align: center; padding: 30px; margin-top: 40px; }
 
-/* TABLET/MOBILE RESPONSIVENESS */
-@media (max-width: 900px) {
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
-}
+/* RESPONSIVENESS */
+@media (max-width: 992px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .category-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -159,26 +166,26 @@ footer { background: var(--secondary); color: white; text-align: center; padding
 </header>
 
 <div class="hero">
-  <h2>Authentic Indian Heritage</h2>
+  <h2>Authentic Indian Taste & Heritage Style</h2>
 </div>
 
 <section id="categories">
   <h2 class="section-title">Shop by Category</h2>
   <div class="category-grid">
     <a href="#biscuits" class="card">
-      <div class="img-box"><img src="images/images/biscuits/osmania-buiscets.png"></div>
+      <div class="img-box"><img src="images/images/biscuits/osmania-buiscets.png" alt="Biscuits"></div>
       <div class="card-body"><h3>Osmania Biscuits</h3></div>
     </a>
     <a href="#oils" class="card">
-      <div class="img-box"><img src="images/images/oils/wooden-cold-pressed-oil.jpg.png"></div>
+      <div class="img-box"><img src="images/images/oils/wooden-cold-pressed-oil.jpg.png" alt="Oils"></div>
       <div class="card-body"><h3>Wood Pressed Oils</h3></div>
     </a>
     <a href="#jewellery" class="card">
-      <div class="img-box"><img src="images/images/jewellery/jewellery1.jpg.png"></div>
+      <div class="img-box"><img src="images/images/jewellery/jewellery1.jpg.png" alt="Jewellery"></div>
       <div class="card-body"><h3>Imitation Jewellery</h3></div>
     </a>
     <a href="#clothes" class="card">
-      <div class="img-box"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
+      <div class="img-box"><img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800" alt="Clothes"></div>
       <div class="card-body"><h3>Clothing</h3></div>
     </a>
   </div>
@@ -191,8 +198,8 @@ footer { background: var(--secondary); color: white; text-align: center; padding
       <div class="img-box"><img src="images/images/biscuits/osmania-buiscets.png"></div>
       <div class="card-body">
         <h4>Classic Osmania Biscuits</h4>
-        <p>The authentic taste of Hyderabad.</p>
-        <a href="https://wa.me/918919196423" class="btn-order" target="_blank">Order on WhatsApp</a>
+        <p>Traditional Hyderabad Recipe</p>
+        <a href="https://wa.me/918919196423" class="btn-wa">Order on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -204,33 +211,27 @@ footer { background: var(--secondary); color: white; text-align: center; padding
     <div class="card product-card">
       <div class="img-box"><img src="images/images/oils/wooden-cold-pressed-oil.jpg.png"></div>
       <div class="card-body">
-        <h4>Pure Wooden Pressed Oil</h4>
-        <p>100% natural and healthy.</p>
-        <a href="https://wa.me/918919196423" class="btn-order" target="_blank">Order on WhatsApp</a>
+        <h4>Pure Cold Pressed Oil</h4>
+        <p>100% Natural & Nutrient Rich</p>
+        <a href="https://wa.me/918919196423" class="btn-wa">Order on WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
 <section id="jewellery">
-  <h2 class="section-title">Jewellery Collection</h2>
+  <h2 class="section-title">Imitation Jewellery</h2>
   <div class="product-grid">
     <div class="card product-card">
       <div class="img-box"><img src="images/images/jewellery/jewellery1.jpg.png"></div>
       <div class="card-body">
         <h4>Heritage Necklace Set</h4>
-        <p>Premium quality imitation jewellery.</p>
-        <a href="https://wa.me/918919196423" class="btn-order" target="_blank">Order on WhatsApp</a>
+        <p>Premium Quality Finish</p>
+        <a href="https://wa.me/918919196423" class="btn-wa">Order on WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<a href="https://wa.me/918919196423" class="float-wa" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03c0 2.123.553 4.197 1.603 6.04L0 24l6.105-1.602a11.832 11.832 0 005.937 1.598h.005c6.637 0 12.032-5.395 12.034-12.032a11.762 11.762 0 00-3.48-8.513z"/></svg>
-</a>
-
-<footer>© 2026 BharatSwaad & Style</footer>
-
-</body>
-</html>
+<a href="https://wa.me/918919196423" class="wa-fly" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.
