@@ -7,8 +7,8 @@
 
 <style>
 :root{
-  --primary:#25D366; /* Matching WhatsApp Green */
-  --secondary:#128C7E; /* Darker WhatsApp shade */
+  --primary:#25D366; 
+  --secondary:#128C7E; 
   --whatsapp:#25D366;
   --light:#f8f8f8;
   --dark:#222;
@@ -23,7 +23,6 @@ body{
   color:var(--dark);
 }
 
-/* HEADER & NAV - Updated to Green Gradient */
 header{
   background:linear-gradient(90deg, var(--secondary), var(--primary));
   padding:15px;
@@ -38,7 +37,6 @@ header{
 nav{ margin-top: 10px; }
 nav a{ color:#fff; margin:0 12px; text-decoration:none; font-weight:600; font-size: 14px; text-transform: uppercase; }
 
-/* HERO */
 .hero{
   padding:80px 20px;
   text-align:center;
@@ -63,7 +61,7 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
   gap:25px;
 }
 
-/* CARD STYLE - Compact and Clean */
+/* CARD STYLE */
 .card, .product {
   background:#fff;
   border-radius:12px;
@@ -74,7 +72,6 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
   height: 100%;
 }
 
-/* IMAGE FIX - Standard Rectangle 4:3 */
 .img-container {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -88,7 +85,6 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
   object-fit: cover;
 }
 
-/* CONTENT BOX */
 .card-content {
   padding: 15px;
   flex-grow: 1;
@@ -100,7 +96,6 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
 .card-content h3, .card-content h4 { margin: 0 0 10px 0; font-size: 18px; color: var(--secondary); }
 .card-content p { font-size: 14px; color: #555; margin-bottom: 15px; flex-grow: 1; }
 
-/* WHATSAPP BUTTON - PINNED TO BOTTOM */
 .btn-wa {
   background: var(--whatsapp);
   color: #fff;
@@ -116,7 +111,6 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
 
 .btn-wa:hover { background: #1eb954; transform: scale(1.02); }
 
-/* LARGE FLOATING WHATSAPP FLYER */
 .whatsapp-flyer {
   position: fixed;
   bottom: 25px;
@@ -137,7 +131,6 @@ h2.section-title{ text-align:center; margin-bottom:30px; color: var(--secondary)
 
 footer{ background:var(--secondary); color:#fff; text-align:center; padding:25px; margin-top: 40px; }
 
-/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .categories { grid-template-columns: repeat(2, 1fr); }
 }
@@ -197,39 +190,23 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:25px
   </div>
 </section>
 
+<section id="oils">
+  <h2 class="section-title">Wooden Cold Pressed Oils</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png"></div>
+      <div class="card-content">
+        <h4>Pure Wood Pressed Oil</h4>
+        <p>Natural extraction process preserving all essential nutrients.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="jewellery">
   <h2 class="section-title">Imitation Jewellery</h2>
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="images/jewellery1.jpg.png"></div>
-      <div class="card-content">
-        <h4>Traditional Necklace</h4>
-        <p>Hand-crafted designs with a premium golden finish.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="clothes">
-  <h2 class="section-title">Clothing Collection</h2>
-  <div class="products">
-    <div class="product">
-      <div class="img-container"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800"></div>
-      <div class="card-content">
-        <h4>Traditional Wear</h4>
-        <p>Explore our range of elegant fabrics and designs.</p>
-        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<a href="https://wa.me/918919196423" class="whatsapp-flyer" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03c0 2.123.553 4.197 1.603 6.04L0 24l6.105-1.602a11.832 11.832 0 005.937 1.598h.005c6.637 0 12.032-5.395 12.034-12.032a11.762 11.762 0 00-3.48-8.513z"/></svg>
-</a>
-
-<footer>© 2026 BharatSwaad & Style | Trusted Indian Brand</footer>
-
-</body>
-</html>
+      <div class="
