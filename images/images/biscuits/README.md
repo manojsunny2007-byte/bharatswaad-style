@@ -1,1 +1,0 @@
-Osmania biscuits images
