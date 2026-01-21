@@ -9,6 +9,7 @@
 :root{
   --primary:#ff7a00;
   --secondary:#1b5e20;
+  --whatsapp:#25D366;
   --light:#f8f8f8;
   --dark:#222;
 }
@@ -17,123 +18,153 @@
 
 body{
   margin:0;
-  font-family:Segoe UI, Arial, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background:var(--light);
   color:var(--dark);
+  line-height: 1.6;
 }
 
-/* HEADER */
+/* HEADER & NAV */
 header{
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  padding:18px;
+  background:linear-gradient(90deg, var(--primary), var(--secondary));
+  padding:15px;
   text-align:center;
   color:#fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
+nav{ margin-top: 10px; }
 nav a{
   color:#fff;
-  margin:0 14px;
+  margin:0 12px;
   text-decoration:none;
   font-weight:600;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
-nav a:hover{ text-decoration:underline }
+nav a:hover{ text-decoration:underline; }
 
-/* HERO */
+/* HERO SECTION */
 .hero{
-  padding:80px 20px;
+  padding:100px 20px;
   text-align:center;
-  background:url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
 }
 
-.hero h2{font-size:38px;margin-bottom:10px}
-.hero p{font-size:18px}
+.hero h2{ font-size:42px; margin-bottom:10px; }
+.hero p{ font-size:20px; opacity: 0.9; }
 
-/* SECTIONS */
+/* MAIN SECTIONS */
 section{
-  padding:70px 20px;
+  padding:60px 20px;
   max-width:1200px;
   margin:auto;
 }
 
-h2{
+h2.section-title{
   text-align:center;
   margin-bottom:40px;
+  font-size: 32px;
+  position: relative;
 }
 
-/* CATEGORIES */
+h2.section-title::after{
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin: 10px auto;
+}
+
+/* CATEGORY GRID */
 .categories{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:20px;
 }
 
 .card{
   background:#fff;
   border-radius:16px;
-  padding:20px;
+  padding:15px;
   text-align:center;
-  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
   cursor:pointer;
-  transition:0.3s;
+  transition: 0.3s ease;
 }
 
-.card:hover{ transform:translateY(-8px) }
+.card:hover{ transform:translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
 
 .card img{
   width:100%;
-  height:220px;
+  height:160px;
   object-fit:contain;
-  background:#fff;
-  padding:10px;
   border-radius:12px;
+  margin-bottom: 15px;
 }
 
-/* PRODUCTS */
+/* PRODUCT GRID */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:30px;
 }
 
 .product{
   background:#fff;
-  border-radius:14px;
-  padding:18px;
+  border-radius:15px;
+  padding:20px;
   text-align:center;
-  box-shadow:0 8px 18px rgba(0,0,0,0.1);
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
 }
 
 .product img{
   width:100%;
-  height:260px;
+  height:250px;
   object-fit:contain;
-  background:#fff;
-  padding:10px;
-  border-radius:10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
 }
 
-/* BUTTON */
-.btn{
-  display:inline-block;
-  margin-top:14px;
-  background:var(--primary);
+.product:hover img { transform: scale(1.05); }
+
+/* WHATSAPP BUTTON */
+.btn-wa{
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--whatsapp);
   color:#fff;
-  padding:12px 20px;
-  border-radius:10px;
+  padding:12px 25px;
+  border-radius:50px;
   text-decoration:none;
-  font-weight:600;
+  font-weight:bold;
+  transition: 0.3s;
+  margin-top: 10px;
 }
 
-.btn:hover{ opacity:0.9 }
+.btn-wa:hover{ background: #1eb954; transform: scale(1.05); }
 
 /* FOOTER */
 footer{
   background:var(--secondary);
   color:#fff;
   text-align:center;
-  padding:22px;
+  padding:30px;
+  margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  .hero h2 { font-size: 28px; }
+  nav a { margin: 0 5px; font-size: 12px; }
 }
 </style>
 </head>
@@ -145,6 +176,8 @@ footer{
   <nav>
     <a href="#home">Home</a>
     <a href="#categories">Categories</a>
+    <a href="#biscuits">Biscuits</a>
+    <a href="#oils">Oils</a>
     <a href="#jewellery">Jewellery</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -152,38 +185,42 @@ footer{
 
 <div class="hero" id="home">
   <h2>Authentic Taste & Timeless Style</h2>
-  <p>Osmania Biscuits • Jewellery • Fashion</p>
+  <p>Premium Osmania Biscuits • Wood Pressed Oils • Heritage Jewellery</p>
 </div>
 
-<!-- CATEGORIES -->
 <section id="categories">
-  <h2>Shop by Category</h2>
+  <h2 class="section-title">Shop by Category</h2>
   <div class="categories">
     <div class="card" onclick="goTo('biscuits')">
-      <img src="images/osmania-buiscets.png">
+      <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
       <h3>Osmania Biscuits</h3>
     </div>
 
+    <div class="card" onclick="goTo('oils')">
+      <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Cold Pressed Oil">
+      <h3>Wood Pressed Oil</h3>
+    </div>
+
     <div class="card" onclick="goTo('jewellery')">
-      <img src="images/jewellery/necklace-1.jpg">
+      <img src="images/jewellery1.jpg.png" alt="Jewellery">
       <h3>Imitation Jewellery</h3>
     </div>
 
     <div class="card" onclick="goTo('clothes')">
-      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80" alt="Clothing">
       <h3>Clothing</h3>
     </div>
   </div>
 </section>
 
-<!-- BISCUITS -->
 <section id="biscuits">
-  <h2>Osmania Biscuits</h2>
+  <h2 class="section-title">Osmania Biscuits</h2>
   <div class="products">
     <div class="product">
       <img src="images/osmania-buiscets.png">
       <h4>Classic Osmania Biscuits</h4>
-      <a class="btn" target="_blank"
+      <p>The authentic taste of Hyderabad.</p>
+      <a class="btn-wa" target="_blank"
          href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Osmania%20Biscuits">
          Order on WhatsApp
       </a>
@@ -191,20 +228,39 @@ footer{
   </div>
 </section>
 
-<!-- JEWELLERY AUTO GALLERY -->
-<section id="jewellery">
-  <h2>Jewellery Collection</h2>
-  <div class="products" id="jewelleryGallery"></div>
+<section id="oils">
+  <h2 class="section-title">Wooden Cold Pressed Oils</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/wooden-cold-pressed-oil.jpg.png">
+      <h4>Pure Wood Pressed Oil</h4>
+      <p>100% Natural, Chemical Free & Healthy.</p>
+      <a class="btn-wa" target="_blank"
+         href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Wood%20Pressed%20Oil">
+         Order on WhatsApp
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- CLOTHING -->
+<section id="jewellery">
+  <h2 class="section-title">Jewellery Collection</h2>
+  <div class="products" id="jewelleryGallery">
+      <div class="product">
+          <img src="images/jewellery1.jpg.png">
+          <h4>Premium Necklace Set</h4>
+          <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Jewellery">Order on WhatsApp</a>
+      </div>
+  </div>
+</section>
+
 <section id="clothes">
-  <h2>Clothing</h2>
+  <h2 class="section-title">Clothing</h2>
   <div class="products">
     <div class="product">
       <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80">
       <h4>Traditional Wear</h4>
-      <a class="btn" target="_blank"
+      <a class="btn-wa" target="_blank"
          href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Traditional%20Wear">
          Order on WhatsApp
       </a>
@@ -212,14 +268,13 @@ footer{
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p style="text-align:center">
-    📞 WhatsApp: +91 8919196423<br>
-    📧 Email: bharatswaad@gmail.com<br>
-    🇮🇳 Made in India
-  </p>
+<section id="contact" style="background: #fff; border-radius: 20px;">
+  <h2 class="section-title">Contact Us</h2>
+  <div style="text-align:center; font-size: 18px;">
+    <p>📞 <strong>WhatsApp:</strong> +91 8919196423</p>
+    <p>📧 <strong>Email:</strong> bharatswaad@gmail.com</p>
+    <p>📍 Made with ❤️ in India</p>
+  </div>
 </section>
 
 <footer>
@@ -228,14 +283,45 @@ footer{
 
 <script>
 function goTo(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  const element = document.getElementById(id);
+  if(element) {
+    const headerOffset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
+  }
 }
 
-/* 🔥 AUTO LOAD JEWELLERY IMAGES FROM GITHUB */
-fetch("https://api.github.com/repos/manojsunny2007-byte/bharatswaad-style/contents/images/jewellery")
+/* AUTO LOAD JEWELLERY IMAGES FROM GITHUB */
+fetch("https://api.github.com/repos/manojsunny2007-byte/bharatswaad-style/contents/images")
 .then(res => res.json())
 .then(data => {
   const gallery = document.getElementById("jewelleryGallery");
+  // Look for any image that has 'jewellery' in its filename
   data.forEach(file => {
-    if(file.name.match(/\.(jpg|jpeg|png)$/i)){
-      gall
+    if(file.name.toLowerCase().includes('jewellery') && 
+       file.name !== 'jewellery1.jpg.png' && // Skip the one we already hardcoded above
+       file.name.match(/\.(jpg|jpeg|png)$/i)){
+      
+      const prod = document.createElement("div");
+      prod.className = "product";
+      prod.innerHTML = `
+        <img src="${file.path}">
+        <h4>Elegant Collection Item</h4>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Jewellery%20${file.name}">
+          Order on WhatsApp
+        </a>
+      `;
+      gallery.appendChild(prod);
+    }
+  });
+})
+.catch(err => console.log("GitHub Gallery error: ", err));
+</script>
+
+</body>
+</html>
