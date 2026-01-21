@@ -78,41 +78,70 @@ h2.section-title::after{
   margin: 10px auto;
 }
 
-/* CATEGORY & PRODUCT GRID */
+/* GRID LAYOUTS */
 .categories, .products {
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
   gap:30px;
 }
 
-/* THE CARD FIX: This makes the image fit the rectangle */
+/* CARD & PRODUCT STYLE */
 .card, .product {
   background:#fff;
   border-radius:16px;
-  overflow: hidden; /* Ensures image doesn't bleed past rounded corners */
+  overflow: hidden; 
   text-align:center;
   box-shadow:0 10px 20px rgba(0,0,0,0.08);
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: 100%; 
 }
 
-.card:hover, .product:hover { transform:translateY(-10px); }
+.card:hover, .product:hover { 
+  transform:translateY(-10px); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
 
-/* IMAGE FIX: cover makes it fill the space, height controls the rectangle size */
+/* IMAGE ZOOM EFFECT */
+.img-container {
+  width: 100%;
+  height: 300px; 
+  overflow: hidden;
+}
+
 .card img, .product img {
   width: 100%;
-  height: 300px; /* Adjust this to make the rectangle taller or shorter */
-  object-fit: cover; /* This makes the image fill the entire rectangle area */
-  display: block;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.5s ease;
 }
 
-.card h3, .product h4, .product p {
-  padding: 10px 15px;
-  margin: 0;
+.card:hover img, .product:hover img {
+  transform: scale(1.1); 
 }
 
-/* WHATSAPP BUTTON */
+/* CONTENT SPACING */
+.card-content {
+  padding: 20px;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h3, .product h4 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+.product p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* WHATSAPP BUTTON AT THE BOTTOM */
 .btn-wa {
   display: inline-flex;
   align-items: center;
@@ -123,14 +152,19 @@ h2.section-title::after{
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  margin: 15px auto 20px; /* Centering button with margin */
   transition: 0.3s;
   border: none;
   cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.btn-wa:hover{ background: #1eb954; transform: scale(1.05); }
+.btn-wa:hover{ 
+  background: #1eb954; 
+  transform: scale(1.05); 
+}
 
+/* FOOTER */
 footer{
   background:var(--secondary);
   color:#fff;
@@ -151,29 +185,53 @@ footer{
     <a href="#biscuits">Biscuits</a>
     <a href="#oils">Oils</a>
     <a href="#jewellery">Jewellery</a>
+    <a href="#clothes">Clothing</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero" id="home">
   <h2>Authentic Taste & Timeless Style</h2>
-  <p>Premium Osmania Biscuits • Wood Pressed Oils • Heritage Jewellery</p>
+  <p>Osmania Biscuits • Wood Pressed Oils • Jewellery • Fashion</p>
 </div>
 
 <section id="categories">
   <h2 class="section-title">Shop by Category</h2>
   <div class="categories">
     <div class="card" onclick="goTo('biscuits')">
-      <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
-      <h3>Osmania Biscuits</h3>
+      <div class="img-container">
+        <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
+      </div>
+      <div class="card-content">
+        <h3>Osmania Biscuits</h3>
+      </div>
     </div>
+    
     <div class="card" onclick="goTo('oils')">
-      <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Cold Pressed Oil">
-      <h3>Wood Pressed Oil</h3>
+      <div class="img-container">
+        <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Cold Pressed Oil">
+      </div>
+      <div class="card-content">
+        <h3>Wood Pressed Oil</h3>
+      </div>
     </div>
+    
     <div class="card" onclick="goTo('jewellery')">
-      <img src="images/jewellery1.jpg.png" alt="Jewellery">
-      <h3>Imitation Jewellery</h3>
+      <div class="img-container">
+        <img src="images/jewellery1.jpg.png" alt="Jewellery">
+      </div>
+      <div class="card-content">
+        <h3>Imitation Jewellery</h3>
+      </div>
+    </div>
+
+    <div class="card" onclick="goTo('clothes')">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80" alt="Clothing">
+      </div>
+      <div class="card-content">
+        <h3>Clothing</h3>
+      </div>
     </div>
   </div>
 </section>
@@ -182,12 +240,16 @@ footer{
   <h2 class="section-title">Osmania Biscuits</h2>
   <div class="products">
     <div class="product">
-      <img src="images/osmania-buiscets.png">
-      <h4>Classic Osmania Biscuits</h4>
-      <p>The authentic taste of Hyderabad.</p>
-      <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Osmania%20Biscuits">
-         Order on WhatsApp
-      </a>
+      <div class="img-container">
+        <img src="images/osmania-buiscets.png" alt="Osmania Biscuits">
+      </div>
+      <div class="card-content">
+        <h4>Classic Osmania Biscuits</h4>
+        <p>The authentic, buttery taste of traditional Hyderabad.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Osmania%20Biscuits">
+           Order on WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -196,31 +258,59 @@ footer{
   <h2 class="section-title">Wooden Cold Pressed Oils</h2>
   <div class="products">
     <div class="product">
-      <img src="images/wooden-cold-pressed-oil.jpg.png">
-      <h4>Pure Wood Pressed Oil</h4>
-      <p>100% Natural, Chemical Free & Healthy.</p>
-      <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Wood%20Pressed%20Oil">
-         Order on WhatsApp
-      </a>
+      <div class="img-container">
+        <img src="images/wooden-cold-pressed-oil.jpg.png" alt="Wood Pressed Oil">
+      </div>
+      <div class="card-content">
+        <h4>Pure Wood Pressed Oil</h4>
+        <p>100% Natural, extracted at room temperature to keep nutrients intact.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Wood%20Pressed%20Oil">
+           Order on WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="jewellery">
   <h2 class="section-title">Jewellery Collection</h2>
-  <div class="products" id="jewelleryGallery">
+  <div class="products">
       <div class="product">
-          <img src="images/jewellery1.jpg.png">
-          <h4>Premium Necklace Set</h4>
-          <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Jewellery">Order on WhatsApp</a>
+          <div class="img-container">
+            <img src="images/jewellery1.jpg.png" alt="Jewellery Set">
+          </div>
+          <div class="card-content">
+            <h4>Premium Necklace Set</h4>
+            <p>Traditional designs for your special occasions.</p>
+            <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Jewellery">Order on WhatsApp</a>
+          </div>
       </div>
+  </div>
+</section>
+
+<section id="clothes">
+  <h2 class="section-title">Clothing</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Clothing">
+      </div>
+      <div class="card-content">
+        <h4>Traditional Wear</h4>
+        <p>Authentic Indian fashion for everyday elegance.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423?text=Hi%20I%20want%20to%20order%20Traditional%20Wear">
+           Order on WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="contact">
   <h2 class="section-title">Contact Us</h2>
   <div style="text-align:center;">
-    <p>📞 WhatsApp: +91 8919196423 | 📧 Email: bharatswaad@gmail.com</p>
+    <p>📞 WhatsApp: +91 8919196423</p>
+    <p>📧 Email: bharatswaad@gmail.com</p>
   </div>
 </section>
 
