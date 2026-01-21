@@ -8,160 +8,119 @@
 <style>
 :root{
   --primary:#25D366; 
-  --secondary:#128C7E; 
+  --secondary:#128C7E;
   --whatsapp:#25D366;
-  --light:#f4f7f6;
+  --light:#f9f9f9;
   --dark:#333;
 }
 
-*{box-sizing:border-box;scroll-behavior:smooth}
+*{box-sizing:border-box; scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:'Segoe UI', Roboto, sans-serif;
   background:var(--light);
   color:var(--dark);
-  line-height: 1.6;
 }
 
 header{
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
-  padding: 20px 15px;
+  background: linear-gradient(90deg, #128C7E, #25D366);
+  padding: 20px;
   text-align: center;
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-nav{ margin-top: 12px; }
-nav a{ color:#fff; margin:0 15px; text-decoration:none; font-weight:600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; }
-nav a:hover { opacity: 0.8; }
+nav a{ color:#fff; margin:0 10px; text-decoration:none; font-weight:600; font-size: 13px; text-transform: uppercase; }
 
 .hero{
-  padding:100px 20px;
+  padding:80px 20px;
   text-align:center;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
               url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
 }
 
-section{ padding:60px 20px; max-width:1200px; margin:auto; }
-h2.section-title{ text-align:center; margin-bottom:40px; color: var(--secondary); font-weight: 700; font-size: 2rem; position: relative; padding-bottom: 10px; }
-h2.section-title::after { content: ''; width: 60px; height: 3px; background: var(--primary); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+section{ padding:50px 20px; max-width:1100px; margin:auto; }
+h2.section-title{ text-align:center; margin-bottom:40px; color: var(--secondary); font-size: 28px; font-weight: 700; }
 
-/* GRID SYSTEMS */
-.categories {
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:20px;
-}
+/* GRID SYSTEM */
+.categories { display:grid; grid-template-columns: repeat(4, 1fr); gap:15px; }
+.products { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; }
 
-.products {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap:30px;
-}
-
-/* THE CARD DESIGN */
+/* CARD DESIGN */
 .card, .product {
   background:#fff;
-  border-radius:15px;
+  border-radius:12px;
   overflow: hidden; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.3s ease;
   border: 1px solid #eee;
 }
 
-.card:hover, .product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
+.card:hover, .product:hover { transform: translateY(-5px); }
 
-/* IMAGE FIX: This ensures heads/caps are never cut off */
+/* IMAGE FIX - NO CROPPING, NO WHITE GAPS */
 .img-container {
   width: 100%;
-  height: 250px; /* Fixed height for consistent look */
+  position: relative;
   overflow: hidden;
   background: #fff;
-  position: relative;
 }
+
+/* This creates a specific space based on image ratio so nothing is cut */
+.product .img-container { padding-top: 75%; } /* Adjusts for landscape photos */
+.card .img-container { padding-top: 100%; }    /* Square for categories */
 
 .img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  /* FIX: 'top' ensures the top of images (heads/caps) are prioritized */
-  object-fit: cover;
-  object-position: top; 
-  transition: transform 0.6s ease;
+  object-fit: contain; /* Shows the WHOLE image - caps, heads, everything */
+  padding: 5px;       /* Tiny breathing room so it doesn't touch the edge */
+  transition: transform 0.5s ease;
 }
 
-/* SMOOTH ZOOM EFFECT */
-.card:hover .img-container img, .product:hover .img-container img {
-  transform: scale(1.08);
+/* PROFESSIONAL ZOOM EFFECT */
+.card:hover img, .product:hover img {
+  transform: scale(1.15); /* Zooms in smoothly when hovered */
 }
 
 .card-content {
   padding: 20px;
+  text-align: center;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
-.card-content h3, .card-content h4 { margin: 0 0 12px 0; font-size: 20px; color: var(--secondary); font-weight: 700; }
-.card-content p { font-size: 15px; color: #666; margin-bottom: 20px; flex-grow: 1; }
+.card-content h3, .card-content h4 { margin: 0 0 10px 0; color: var(--secondary); font-size: 18px; }
+.card-content p { font-size: 14px; color: #666; margin-bottom: 20px; flex-grow: 1; }
 
-/* WHATSAPP BUTTON PINNED TO BOTTOM */
+/* BUTTONS */
 .btn-wa {
   background: var(--whatsapp);
   color: #fff;
-  padding: 14px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 8px;
   text-decoration:none;
   font-weight: 700;
-  font-size: 15px;
   display: block;
   margin-top: auto;
   transition: 0.3s;
-  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
 }
+.btn-wa:hover { background: #1eb954; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
 
-.btn-wa:hover { background: #1eb954; transform: scale(1.02); }
+footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px; margin-top: 50px; }
 
-/* FLOATING WHATSAPP BUTTON */
-.whatsapp-flyer {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: var(--whatsapp);
-  width: 65px; 
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  z-index: 2000;
-  transition: 0.3s;
-}
-.whatsapp-flyer:hover { transform: scale(1.1) rotate(10deg); }
-.whatsapp-flyer svg { width: 35px; height: 35px; fill: white; }
-
-footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px 20px; margin-top: 60px; font-size: 14px; opacity: 0.9; }
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 900px) {
-  .categories { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .img-container { height: 200px; }
-  h2.section-title { font-size: 1.6rem; }
-}
+@media (max-width: 800px) { .categories { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 
@@ -179,26 +138,26 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px
 </header>
 
 <div class="hero">
-  <h2>Heritage Quality. Authentic Taste.</h2>
+  <h2>Premium Quality Indian Heritage</h2>
 </div>
 
 <section id="categories">
-  <h2 class="section-title">Explore Our Collections</h2>
+  <h2 class="section-title">Shop by Category</h2>
   <div class="categories">
     <div class="card" onclick="location.href='#biscuits'">
-      <div class="img-container"><img src="images/osmania-buiscets.png" alt="Biscuits"></div>
+      <div class="img-container"><img src="images/osmania-buiscets.png"></div>
       <div class="card-content"><h3>Biscuits</h3></div>
     </div>
     <div class="card" onclick="location.href='#oils'">
-      <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png" alt="Oils"></div>
+      <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png"></div>
       <div class="card-content"><h3>Pure Oils</h3></div>
     </div>
     <div class="card" onclick="location.href='#jewellery'">
-      <div class="img-container"><img src="images/jewellery1.jpg.png" alt="Jewellery"></div>
+      <div class="img-container"><img src="images/jewellery1.jpg.png"></div>
       <div class="card-content"><h3>Jewellery</h3></div>
     </div>
     <div class="card" onclick="location.href='#clothes'">
-      <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800" alt="Clothing"></div>
+      <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
       <div class="card-content"><h3>Clothing</h3></div>
     </div>
   </div>
@@ -210,8 +169,8 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px
     <div class="product">
       <div class="img-container"><img src="images/osmania-buiscets.png"></div>
       <div class="card-content">
-        <h4>The Classic Osmania</h4>
-        <p>Experience the legendary buttery and salty-sweet flavor of Hyderabad.</p>
+        <h4>Classic Osmania</h4>
+        <p>Whole biscuits visible. Buttery, crispy, and authentic.</p>
         <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
       </div>
     </div>
@@ -225,7 +184,7 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px
       <div class="img-container"><img src="images/wooden-cold-pressed-oil.jpg.png"></div>
       <div class="card-content">
         <h4>Healthy Wood Pressed Oil</h4>
-        <p>100% natural extraction preserving all nutrients for a healthy lifestyle.</p>
+        <p>Full bottle view from cap to base. 100% natural extraction.</p>
         <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
       </div>
     </div>
@@ -233,13 +192,13 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px
 </section>
 
 <section id="jewellery">
-  <h2 class="section-title">Imitation Jewellery</h2>
+  <h2 class="section-title">Jewellery</h2>
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="images/jewellery1.jpg.png"></div>
       <div class="card-content">
-        <h4>Heritage Necklace Set</h4>
-        <p>Exquisite traditional designs with a premium antique gold finish.</p>
+        <h4>Heritage Necklace</h4>
+        <p>Full intricate detail visible. Premium traditional finish.</p>
         <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
       </div>
     </div>
@@ -247,26 +206,21 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:40px
 </section>
 
 <section id="clothes">
-  <h2 class="section-title">Clothing Collection</h2>
+  <h2 class="section-title">Clothing</h2>
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
       <div class="card-content">
         <h4>Traditional Heritage Wear</h4>
-        <p>Premium ethnic clothing crafted with attention to every detail.</p>
+        <p>Complete outfit view. High-quality ethnic fashion.</p>
         <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<a href="https://wa.me/918919196423" class="whatsapp-flyer" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03c0 2.123.553 4.197 1.603 6.04L0 24l6.105-1.602a11.832 11.832 0 005.937 1.598h.005c6.637 0 12.032-5.395 12.034-12.032a11.762 11.762 0 00-3.48-8.513z"/></svg>
-</a>
-
 <footer>
-  <p>&copy; 2026 BharatSwaad & Style | All Rights Reserved</p>
-  <p>Providing Heritage Quality and Authentic Indian Products Since 2024</p>
+  <p>&copy; 2026 BharatSwaad & Style | Authentic Indian Heritage</p>
 </footer>
 
 </body>
