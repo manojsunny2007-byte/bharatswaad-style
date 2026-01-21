@@ -2,124 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BharatSwaad & Style | Premium Indian Heritage</title>
+<title>BharatSwaad & Style</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-:root{
-  --primary:#ff7a00;
-  --secondary:#1b5e20;
-  --whatsapp:#25D366;
-  --light:#f4f4f4;
-  --white:#ffffff;
+:root {
+  --primary: #ff7a00;
+  --secondary: #1b5e20;
+  --whatsapp: #25D366;
+  --light: #f4f4f4;
 }
 
-*{box-sizing:border-box;scroll-behavior:smooth}
+* { box-sizing: border-box; scroll-behavior: smooth; }
 
-body{
-  margin:0;
-  font-family:'Segoe UI', Roboto, sans-serif;
-  background:var(--light);
-  color:#333;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--light);
 }
 
-/* NAVIGATION */
-header{
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+/* HEADER & NAV */
+header {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
   padding: 15px;
   text-align: center;
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-nav a{
-  color:#fff;
-  margin:0 12px;
-  text-decoration:none;
-  font-weight:600;
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 13px;
 }
 
-/* HERO */
-.hero{
-  padding: 100px 20px;
+/* HERO SECTION */
+.hero {
+  padding: 80px 20px;
   text-align: center;
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
               url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
   color: #fff;
 }
 
-/* SECTION STYLING */
-section{ padding: 60px 20px; max-width: 1200px; margin: auto; }
-h2.section-title{ text-align: center; margin-bottom: 40px; font-size: 32px; color: var(--secondary); }
-h2.section-title::after{ content: ''; width: 60px; height: 4px; background: var(--primary); display: block; margin: 10px auto; }
+/* GRID SYSTEM */
+section { padding: 50px 20px; max-width: 1200px; margin: auto; }
+h2.section-title { text-align: center; margin-bottom: 40px; color: var(--secondary); }
 
-/* DYNAMIC GRID */
-.products-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-/* PRODUCT CARD & ZOOM */
-.product-card {
-  background: var(--white);
+/* THE RECTANGLE CARD FIX */
+.card {
+  background: #fff;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  transition: transform 0.3s ease;
 }
 
-.product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+.card:hover { transform: translateY(-10px); }
 
-.img-box { width: 100%; height: 320px; overflow: hidden; }
-.img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-.product-card:hover img { transform: scale(1.1); }
+/* IMAGE FIT & ZOOM */
+.img-wrap {
+  width: 100%;
+  height: 300px; /* Fixed height for the white rectangle */
+  overflow: hidden;
+}
 
-.content { padding: 20px; flex-grow: 1; text-align: center; display: flex; flex-direction: column; justify-content: space-between;}
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes it fit the rectangle perfectly */
+  transition: transform 0.5s ease;
+}
 
-/* WHATSAPP BUTTON */
+.card:hover img { transform: scale(1.1); } /* Zoom Effect */
+
+.content {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* WHATSAPP BUTTON AT BOTTOM */
 .btn-wa {
   background: var(--whatsapp);
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  display: inline-block;
   margin-top: 15px;
-  transition: 0.3s;
-}
-.btn-wa:hover { background: #1eb954; transform: scale(1.05); }
-
-/* VIDEO SECTION STYLE */
-.video-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  background: #000;
+  display: inline-block;
 }
 
-.video-container iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-}
-
-/* FLOATING ELEMENTS */
-.float-wa { position: fixed; bottom: 20px; right: 20px; background: var(--whatsapp); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 100; }
-.float-wa svg { fill: white; width: 30px; height: 30px; }
-
-footer { background: var(--secondary); color: #fff; text-align: center; padding: 40px; margin-top: 40px; }
+footer { background: var(--secondary); color: #fff; text-align: center; padding: 30px; margin-top: 40px; }
 </style>
 </head>
 
@@ -128,93 +118,99 @@ footer { background: var(--secondary); color: #fff; text-align: center; padding:
 <header>
   <h1>BharatSwaad & Style</h1>
   <nav>
+    <a href="#home">Home</a>
     <a href="#biscuits">Biscuits</a>
     <a href="#oils">Oils</a>
     <a href="#jewellery">Jewellery</a>
     <a href="#clothes">Clothing</a>
-    <a href="#showcase">Video</a>
   </nav>
 </header>
 
-<div class="hero">
-  <h2>Authentic Taste & Timeless Style</h2>
-  <p>Auto-Syncing with our Latest Heritage Collection</p>
+<div class="hero" id="home">
+  <h2>Premium Indian Heritage</h2>
 </div>
 
-<section id="showcase">
-  <h2 class="section-title">Our Craftsmanship</h2>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="BharatSwaad Showcase" allowfullscreen></iframe>
+<section id="categories">
+  <h2 class="section-title">Shop by Category</h2>
+  <div class="grid">
+    <div class="card" onclick="location.href='#biscuits'">
+      <div class="img-wrap"><img src="images/images/biscuits/osmania-buiscets.png"></div>
+      <div class="content"><h3>Osmania Biscuits</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#oils'">
+      <div class="img-wrap"><img src="images/images/oils/wooden-cold-pressed-oil.jpg.png"></div>
+      <div class="content"><h3>Wood Pressed Oils</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#jewellery'">
+      <div class="img-wrap"><img src="images/images/jewellery/jewellery1.jpg.png"></div>
+      <div class="content"><h3>Imitation Jewellery</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#clothes'">
+      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
+      <div class="content"><h3>Clothing</h3></div>
+    </div>
   </div>
-  <p style="text-align: center; margin-top: 20px; color: #666;">Experience the traditional process behind our premium products.</p>
 </section>
 
 <section id="biscuits">
   <h2 class="section-title">Osmania Biscuits</h2>
-  <div class="products-grid" id="biscuits-container"></div>
+  <div class="grid">
+    <div class="card">
+      <div class="img-wrap"><img src="images/images/biscuits/osmania-buiscets.png"></div>
+      <div class="content">
+        <h4>Classic Osmania Biscuits</h4>
+        <p>The authentic taste of Hyderabad.</p>
+        <a href="https://wa.me/918919196423" class="btn-wa" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="oils">
   <h2 class="section-title">Wood Pressed Oils</h2>
-  <div class="products-grid" id="oils-container"></div>
+  <div class="grid">
+    <div class="card">
+      <div class="img-wrap"><img src="images/images/oils/wooden-cold-pressed-oil.jpg.png"></div>
+      <div class="content">
+        <h4>Pure Wooden Pressed Oil</h4>
+        <p>100% natural and healthy.</p>
+        <a href="https://wa.me/918919196423" class="btn-wa" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="jewellery">
   <h2 class="section-title">Jewellery Collection</h2>
-  <div class="products-grid" id="jewellery-container"></div>
+  <div class="grid">
+    <div class="card">
+      <div class="img-wrap"><img src="images/images/jewellery/jewellery1.jpg.png"></div>
+      <div class="content">
+        <h4>Heritage Necklace Set</h4>
+        <p>Premium quality imitation jewellery.</p>
+        <a href="https://wa.me/918919196423" class="btn-wa" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="clothes">
-  <h2 class="section-title">Clothing Gallery</h2>
-  <div class="products-grid" id="clothes-container"></div>
+  <h2 class="section-title">Clothing</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800"></div>
+      <div class="content">
+        <h4>Traditional Wear</h4>
+        <p>Elegant Indian ethnic wear.</p>
+        <a href="https://wa.me/918919196423" class="btn-wa" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<a href="https://wa.me/918919196423" class="float-wa" target="_blank">
-  <svg viewBox="0 0 32 32"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.483 2.017 7.791l-2.017 7.709 7.917-2.017c2.258 1.183 4.825 1.858 7.55 1.858 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.458 0-4.75-0.617-6.775-1.692l-0.483-0.258-4.7 1.2 1.225-4.583-0.283-0.45c-1.225-1.958-1.942-4.283-1.942-6.775 0-7.358 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333z"></path></svg>
-</a>
-
 <footer>
-  <p>© 2026 BharatSwaad & Style | Handcrafted in India</p>
+  <p>© 2026 BharatSwaad & Style | WhatsApp: +91 8919196423</p>
 </footer>
-
-<script>
-const GITHUB_USER = "manojsunny2007-byte";
-const REPO_NAME = "bharatswaad-style";
-// Based on your folder structure images/images/[folder]
-const CATEGORIES = ['biscuits', 'clothes', 'jewellery', 'oils'];
-
-async function loadProducts() {
-  for (const cat of CATEGORIES) {
-    const url = `https://api.github.com/repos/${GITHUB_USER}/${REPO_NAME}/contents/images/images/${cat}`;
-    const container = document.getElementById(`${cat}-container`);
-
-    try {
-      const response = await fetch(url);
-      const files = await response.json();
-
-      files.forEach(file => {
-        if (file.name.match(/\.(jpg|jpeg|png|webp)$/i)) {
-          const card = document.createElement("div");
-          card.className = "product-card";
-          card.innerHTML = `
-            <div class="img-box"><img src="${file.download_url}" alt="${file.name}"></div>
-            <div class="content">
-              <h4>${cat.charAt(0).toUpperCase() + cat.slice(1)} Heritage</h4>
-              <p>Premium Quality Selection</p>
-              <a href="https://wa.me/918919196423?text=Order%20${file.name}" class="btn-wa">Order on WhatsApp</a>
-            </div>
-          `;
-          container.appendChild(card);
-        }
-      });
-    } catch (e) {
-      console.log(`Folder ${cat} is empty or not found.`);
-    }
-  }
-}
-
-loadProducts();
-</script>
 
 </body>
 </html>
