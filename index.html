@@ -1,150 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BharatSwaad & Style</title>
+<meta charset="UTF-8">
+<title>BharatSwaad & Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fafafa;
-        }
-
-        header {
-            background: #7a3e0d;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .tagline {
-            text-align: center;
-            padding: 10px;
-            font-size: 16px;
-            background: #f1e6d8;
-        }
-
-        .section {
-            padding: 30px;
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            padding: 15px;
-            text-align: center;
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-
-        .card h3 {
-            margin: 10px 0 5px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-        }
-    </style>
+<style>
+:root{
+  --primary:#ff7a00;
+  --secondary:#1b5e20;
+  --whatsapp:#25D366;
+  --light:#f8f8f8;
+  --dark:#222;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:var(--light);
+  color:var(--dark);
+  line-height: 1.6;
+}
+header{
+  background:linear-gradient(90deg, var(--primary), var(--secondary));
+  padding:15px;
+  text-align:center;
+  color:#fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+nav{ margin-top: 10px; }
+nav a{
+  color:#fff;
+  margin:0 12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.hero{
+  padding:100px 20px;
+  text-align:center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80")
+              center/cover;
+  color:#fff;
+}
+section{
+  padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+h2.section-title{
+  text-align:center;
+  margin-bottom:40px;
+  font-size: 32px;
+}
+.categories{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:20px;
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
+}
+.card,.product{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover,.product:hover{
+  transform:translateY(-8px);
+}
+.img-container{
+  height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+.img-container img{
+  max-width:95%;
+  max-height:95%;
+  object-fit:contain;
+}
+.card-content{
+  padding:20px;
+}
+.btn-wa{
+  display:inline-block;
+  background:var(--whatsapp);
+  color:#fff;
+  padding:12px 25px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:10px;
+}
+.whatsapp-flyer{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:65px;
+  height:65px;
+  background:var(--whatsapp);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+.whatsapp-flyer svg{fill:#fff;width:38px;height:38px}
+footer{
+  background:var(--secondary);
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+}
+@media(max-width:768px){
+  .categories{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    BharatSwaad & Style
+  <h1>BharatSwaad & Style</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#biscuits">Biscuits</a>
+    <a href="#oils">Oils</a>
+    <a href="#jewellery">Jewellery</a>
+    <a href="#clothes">Clothing</a>
+  </nav>
 </header>
 
-<div class="tagline">
-    Authentic Indian Food & Lifestyle Products
+<div class="hero" id="home">
+  <h2>Authentic Taste & Timeless Style</h2>
+  <p>Osmania Biscuits • Wood Pressed Oils • Jewellery • Fashion</p>
 </div>
 
-<!-- BISCUITS SECTION -->
-<div class="section">
-    <h2>🍪 Traditional Biscuits</h2>
-    <div class="products">
-        <div class="card">
-            <img src="images/biscuits/osmania-biscuits.png" alt="Osmania Biscuits">
-            <h3>Osmania Biscuits</h3>
-            <p>Hyderabadi classic tea-time biscuits</p>
-        </div>
+<section id="categories">
+  <h2 class="section-title">Shop by Category</h2>
+  <div class="categories">
+    <div class="card" onclick="goTo('biscuits')">
+      <div class="img-container">
+        <img src="images/biscuits/osmania-biscuits.png">
+      </div>
+      <div class="card-content"><h3>Osmania Biscuits</h3></div>
     </div>
-</div>
 
-<!-- OILS SECTION -->
-<div class="section">
-    <h2>🛢️ Wooden Cold Pressed Oils</h2>
-    <div class="products">
-        <div class="card">
-            <img src="images/oils/wooden-cold-pressed-oil.png" alt="Wooden Cold Pressed Oil">
-            <h3>Wooden Cold Pressed Oil</h3>
-            <p>Pure, natural & chemical-free oil</p>
-        </div>
+    <div class="card" onclick="goTo('oils')">
+      <div class="img-container">
+        <img src="images/oils/wooden-cold-pressed-oil.png">
+      </div>
+      <div class="card-content"><h3>Wood Pressed Oils</h3></div>
     </div>
-</div>
 
-<!-- JEWELLERY SECTION -->
-<div class="section">
-    <h2>💍 Imitation Jewellery</h2>
-    <div class="products">
-        <div class="card">
-            <img src="images/jewellery/jewellery1.png" alt="Jewellery">
-            <h3>Designer Jewellery</h3>
-            <p>Elegant everyday wear</p>
-        </div>
-
-        <div class="card">
-            <img src="images/jewellery/jewellery2.png" alt="Jewellery">
-            <h3>Premium Jewellery</h3>
-            <p>Traditional & festive designs</p>
-        </div>
+    <div class="card" onclick="goTo('jewellery')">
+      <div class="img-container">
+        <img src="images/jewellery/jewellery1.png">
+      </div>
+      <div class="card-content"><h3>Imitation Jewellery</h3></div>
     </div>
-</div>
 
-<!-- CLOTHING SECTION -->
-<div class="section">
-    <h2>👕 Clothing (Coming Soon)</h2>
-    <div class="products">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="Clothing">
-            <h3>Ethnic Wear</h3>
-            <p>Launching shortly</p>
-        </div>
+    <div class="card" onclick="goTo('clothes')">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80">
+      </div>
+      <div class="card-content"><h3>Clothing</h3></div>
     </div>
-</div>
+  </div>
+</section>
+
+<section id="biscuits">
+  <h2 class="section-title">Osmania Biscuits</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container">
+        <img src="images/biscuits/osmania-biscuits.png">
+      </div>
+      <div class="card-content">
+        <h4>Classic Osmania Biscuits</h4>
+        <p>Authentic Hyderabadi tea-time biscuits.</p>
+        <a class="btn-wa" href="https://wa.me/918919196423" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oils">
+  <h2 class="section-title">Wood Pressed Oils</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container">
+        <img src="images/oils/wooden-cold-pressed-oil.png">
+      </div>
+      <div class="card-content">
+        <h4>Pure Wood Pressed Oil</h4>
+        <p>Natural & chemical-free extraction.</p>
+        <a class="btn-wa" href="https://wa.me/918919196423" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jewellery">
+  <h2 class="section-title">Jewellery Collection</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container">
+        <img src="images/jewellery/jewellery1.png">
+      </div>
+      <div class="card-content">
+        <h4>Premium Jewellery</h4>
+        <p>Traditional & festive designs.</p>
+        <a class="btn-wa" href="https://wa.me/918919196423" target="_blank">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clothes">
+  <h2 class="section-title">Clothing</h2>
+  <div class="products">
+    <div class="product">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80">
+      </div>
+      <div class="card-content">
+        <h4>Traditional Wear</h4>
+        <p>Launching soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/918919196423" class="whatsapp-flyer" target="_blank">
+<svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.6 5.8 1.6 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+</a>
 
 <footer>
-    © 2026 BharatSwaad & Style | Made in India 🇮🇳
+  © 2026 BharatSwaad & Style | Made in India 🇮🇳
 </footer>
+
+<script>
+function goTo(id){
+  const e=document.getElementById(id);
+  if(e){
+    const y=e.getBoundingClientRect().top+window.pageYOffset-80;
+    window.scrollTo({top:y,behavior:"smooth"});
+  }
+}
+</script>
 
 </body>
 </html>
