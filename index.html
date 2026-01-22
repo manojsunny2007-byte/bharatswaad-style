@@ -5,34 +5,108 @@
 <title>BharatSwaad & Style</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-:root{ --primary:#25D366; --secondary:#128C7E; --whatsapp:#25D366; --light:#f9f9f9; --dark:#333; }
+:root {
+  --primary: #ff8c00; /* Your Original Orange */
+  --secondary: #008000; /* Your Original Green */
+  --whatsapp: #25D366;
+  --light: #fff;
+}
+
 *{box-sizing:border-box; scroll-behavior:smooth}
-body{ margin:0; font-family:'Segoe UI', Roboto, sans-serif; background:var(--light); color:var(--dark); }
 
-header{ background: linear-gradient(90deg, #128C7E, #25D366); padding: 20px; text-align: center; color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-nav a{ color:#fff; margin:0 10px; text-decoration:none; font-weight:600; font-size: 13px; text-transform: uppercase; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+}
 
-.hero{ padding:80px 20px; text-align:center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover; color:#fff; }
-section{ padding:50px 20px; max-width:1100px; margin:auto; }
-h2.section-title{ text-align:center; margin-bottom:40px; color: var(--secondary); font-size: 28px; font-weight: 700; }
+/* HEADER WITH YOUR ORIGINAL COLORS */
+header {
+  background-color: var(--secondary);
+  border-top: 30px solid var(--primary);
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-.categories { display:grid; grid-template-columns: repeat(4, 1fr); gap:15px; }
-.products { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; }
+nav a { color: #fff; margin: 0 10px; text-decoration: none; font-weight: bold; font-size: 14px; }
 
-.card, .product { background:#fff; border-radius:12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column; transition: transform 0.3s ease; border: 1px solid #eee; cursor: pointer;}
-.card:hover, .product:hover { transform: translateY(-5px); }
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80") center/cover;
+  color: #fff;
+}
 
-.img-container { width: 100%; position: relative; overflow: hidden; background: #fff; padding-top: 75%; }
-.img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform 0.5s ease; }
-.card:hover img, .product:hover img { transform: scale(1.1); }
+section { padding: 40px 20px; max-width: 1100px; margin: auto; }
+h2.section-title { text-align: center; margin-bottom: 30px; color: var(--secondary); }
 
-.card-content { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-.card-content h3, .card-content h4 { margin: 0 0 10px 0; color: var(--secondary); font-size: 18px; }
-.card-content p { font-size: 14px; color: #666; margin-bottom: 20px; flex-grow: 1; }
+/* GRID SYSTEM */
+.categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-.btn-wa { background: var(--whatsapp); color: #fff; padding: 12px; border-radius: 8px; text-decoration:none; font-weight: 700; display: block; margin-top: auto; }
+/* CARD DESIGN */
+.card, .product {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
 
-footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px; margin-top: 50px; }
+/* ZOOM EFFECT ON HOVER */
+.card:hover, .product:hover { transform: scale(1.03); }
+
+/* IMAGE FIX: SHOWS FULL IMAGE WITHOUT CROPPING */
+.img-container {
+  width: 100%;
+  height: 250px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* This prevents the cropping of heads/caps */
+  padding: 10px;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3, .card-content h4 { margin: 5px 0; color: var(--secondary); }
+.card-content p { font-size: 13px; color: #555; margin-bottom: 15px; flex-grow: 1; }
+
+/* YOUR ORIGINAL BUTTON STYLE */
+.btn-wa {
+  background: var(--whatsapp);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-top: auto;
+}
+
+footer { background: var(--secondary); color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+
 @media (max-width: 800px) { .categories { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
@@ -49,15 +123,29 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   </nav>
 </header>
 
-<div class="hero"><h2>Premium Indian Heritage</h2></div>
+<div class="hero">
+  <h2>Authentic Indian Taste & Heritage</h2>
+</div>
 
 <section id="categories">
   <h2 class="section-title">Shop by Category</h2>
   <div class="categories">
-    <div class="card" onclick="location.href='#biscuits'"><div class="img-container"><img src="images/osmania-biscuits.png"></div><div class="card-content"><h3>Biscuits</h3></div></div>
-    <div class="card" onclick="location.href='#oils'"><div class="img-container"><img src="images/wooden-cold-pressed-oil.png"></div><div class="card-content"><h3>Pure Oils</h3></div></div>
-    <div class="card" onclick="location.href='#jewellery'"><div class="img-container"><img src="images/jewellery1.png"></div><div class="card-content"><h3>Jewellery</h3></div></div>
-    <div class="card" onclick="location.href='#clothes'"><div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div><div class="card-content"><h3>Clothing</h3></div></div>
+    <div class="card" onclick="location.href='#biscuits'">
+      <div class="img-container"><img src="images/osmania-biscuits.png"></div>
+      <div class="card-content"><h3>Biscuits</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#oils'">
+      <div class="img-container"><img src="images/wooden-cold-pressed-oil.png"></div>
+      <div class="card-content"><h3>Pure Oils</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#jewellery'">
+      <div class="img-container"><img src="images/jewellery1.png"></div>
+      <div class="card-content"><h3>Jewellery</h3></div>
+    </div>
+    <div class="card" onclick="location.href='#clothes'">
+      <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
+      <div class="card-content"><h3>Clothing</h3></div>
+    </div>
   </div>
 </section>
 
@@ -66,7 +154,11 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="images/osmania-biscuits.png"></div>
-      <div class="card-content"><h4>Classic Osmania</h4><p>Authentic buttery biscuits.</p><a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a></div>
+      <div class="card-content">
+        <h4>Classic Osmania</h4>
+        <p>The authentic buttery taste of traditional Hyderabad.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -76,7 +168,11 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="images/wooden-cold-pressed-oil.png"></div>
-      <div class="card-content"><h4>Healthy Wood Pressed Oil</h4><p>100% natural extraction.</p><a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a></div>
+      <div class="card-content">
+        <h4>Healthy Wood Pressed Oil</h4>
+        <p>Pure nutrient-rich oil extracted using traditional methods.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -86,7 +182,11 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="images/jewellery1.png"></div>
-      <div class="card-content"><h4>Heritage Necklace</h4><p>Premium traditional finish.</p><a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a></div>
+      <div class="card-content">
+        <h4>Heritage Necklace</h4>
+        <p>Premium traditional designs for every occasion.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -96,11 +196,18 @@ footer{ background:var(--secondary); color:#fff; text-align:center; padding:30px
   <div class="products">
     <div class="product">
       <div class="img-container"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800"></div>
-      <div class="card-content"><h4>Traditional Wear</h4><p>Elegant Indian fashion.</p><a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a></div>
+      <div class="card-content">
+        <h4>Traditional Wear</h4>
+        <p>Elegant and high-quality Indian fashion.</p>
+        <a class="btn-wa" target="_blank" href="https://wa.me/918919196423">Order on WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer><p>&copy; 2026 BharatSwaad & Style</p></footer>
+<footer>
+  <p>&copy; 2026 BharatSwaad & Style</p>
+</footer>
+
 </body>
 </html>
